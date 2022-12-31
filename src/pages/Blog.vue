@@ -148,8 +148,6 @@ export default class BlogPage extends Vue {
       this.searchValue = this.$route.query.search as string;
     // @ts-ignore
     this.loadedPosts = this.$page.posts.edges.map((n) => n.node);
-    // eslint-disable-next-line no-console
-    console.log(this.loadedPosts);
     this.loadedPosts = this.loadedPosts.filter( (n) => {
         const tags = n.tags;
         for (const tag of tags) {
