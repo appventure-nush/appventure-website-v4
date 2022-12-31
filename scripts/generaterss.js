@@ -32,7 +32,7 @@ rsses.forEach((entry) => {
     description: marked.parse(entry.body),
     url: url,
     author: entry.attributes.author,
-    date: entry.date,
+    date: entry.attributes.date,
     categories: entry.attributes.tags.map((x) => x.name),
   });
 });
