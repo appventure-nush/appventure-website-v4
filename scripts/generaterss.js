@@ -26,7 +26,7 @@ const feed = new RSS({
 });
 
 rsses.forEach((entry) => {
-  const url = `https://nush.app/blog/${entry.attributes.date.getYear()}/${entry.attributes.date.getMonth()}/${entry.attributes.date.getDay()}/${entry.attributes.slug}`;
+  const url = `https://nush.app/blog/${entry.attributes.date.getFullYear()}/${String(entry.attributes.date.getMonth() + 1).padStart(2,'0')}/${String(entry.attributes.date.getDate()).padStart(2,'0')}/${entry.attributes.slug}`;
   feed.item({
     title: entry.attributes.title,
     description: marked.parse(entry.body),

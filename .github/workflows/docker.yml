@@ -13,6 +13,11 @@ jobs:
 
 
     steps:
+      - name: Use Node.js 16.19.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.19.0
+      - run: npm run genrss
       - uses: actions/checkout@v2
       - name: Push image to AppVenture registry
         uses: docker/build-push-action@v1

@@ -14,8 +14,15 @@
         <span class="tiny-text">by NUS High</span>
       </g-link>
 
-      <i class="nav-button las la-bars" @click="toggleNav()" />
-      <nav class="nav" ref="nav" @click="toggleNav()">
+      <i
+        class="nav-button las la-bars"
+        @click="toggleNav()"
+      />
+      <nav
+        class="nav"
+        ref="nav"
+        @click="toggleNav()"
+      >
         <g-link
           class="nav__link"
           to="/about"
@@ -67,6 +74,7 @@
     <footer>
       <div class="medium-container">
         <div class="column">
+
           <a href="https://www.nushigh.edu.sg">
             <img
               src="@/assets/images/nush_logo_color.svg"
@@ -83,6 +91,15 @@
               ><address>20 Clementi Ave 1, Singapore 129957</address></a>
             </li>
           </ul>
+          <div class="link-icons">
+          <a href="https://nush.app/rss.xml">
+            <img
+                src="@/assets/rss.png"
+                alt="rss"
+                width="20"
+            >
+          </a>
+          </div>
         </div>
       </div>
     </footer>
@@ -289,4 +306,9 @@ footer {
   }
 }
 
+.link-icons {
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+}
 </style>

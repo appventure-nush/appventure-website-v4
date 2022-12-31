@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Nush.app Blogposts]]></title><description><![CDATA[Featuring student-written articles on programming and internal events]]></description><link>https://nush.app</link><generator>RSS for Node</generator><lastBuildDate>Sat, 31 Dec 2022 08:23:48 GMT</lastBuildDate><atom:link href="https://nush.app/rss.xml" rel="self" type="application/rss+xml"/><language><![CDATA[en]]></language><item><title><![CDATA[[AVCTF2021] AppVenture Login Part 0]]></title><description><![CDATA[<blockquote>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Nush.app Blogposts]]></title><description><![CDATA[Featuring student-written articles on programming and internal events]]></description><link>https://nush.app</link><generator>RSS for Node</generator><lastBuildDate>Sat, 31 Dec 2022 08:46:39 GMT</lastBuildDate><atom:link href="https://nush.app/rss.xml" rel="self" type="application/rss+xml"/><language><![CDATA[en]]></language><item><title><![CDATA[[AVCTF2021] AppVenture Login Part 0]]></title><description><![CDATA[<blockquote>
 <p>AppVenture Login page must be the most secure right? URL: <a href="http://35.240.143.82:4208/">http://35.240.143.82:4208/</a></p>
 </blockquote>
 <p>Hint:</p>
@@ -17,7 +17,7 @@ flag0 = &quot;flag{you_can_use_automated_tools_like_nikto_to_do_this}&quot;
 ...
 </code></pre>
 <p>Flag obtained</p>
-]]></description><link>https://nush.app/blog/121/11/2/avctf2021-av-login-p0</link><guid isPermaLink="true">https://nush.app/blog/121/11/2/avctf2021-av-login-p0</guid><dc:creator><![CDATA[zhaoyun]]></dc:creator></item><item><title><![CDATA[[AVCTF2021] AppVenture Login Part 1]]></title><description><![CDATA[<blockquote>
+]]></description><link>https://nush.app/blog/2021/12/21/avctf2021-av-login-p0</link><guid isPermaLink="true">https://nush.app/blog/2021/12/21/avctf2021-av-login-p0</guid><dc:creator><![CDATA[zhaoyun]]></dc:creator></item><item><title><![CDATA[[AVCTF2021] AppVenture Login Part 1]]></title><description><![CDATA[<blockquote>
 <p>Well, I haven&#39;t taken CS6131 yet but databases should be easy right??</p>
 </blockquote>
 <p>From the description we can see the keyword databases, based on prior knowledge of the module CS6131, we can be pretty sure this is related to SQL.</p>
@@ -40,7 +40,7 @@ def login():
 <pre><code>flag{you_can_pass_cs6131_now}
 </code></pre>
 <p>Flag obtained</p>
-]]></description><link>https://nush.app/blog/121/11/2/avctf2021-av-login-p1</link><guid isPermaLink="true">https://nush.app/blog/121/11/2/avctf2021-av-login-p1</guid><dc:creator><![CDATA[zhaoyun]]></dc:creator></item><item><title><![CDATA[[AVCTF2021] AppVenture Login Part 2]]></title><description><![CDATA[<blockquote>
+]]></description><link>https://nush.app/blog/2021/12/21/avctf2021-av-login-p1</link><guid isPermaLink="true">https://nush.app/blog/2021/12/21/avctf2021-av-login-p1</guid><dc:creator><![CDATA[zhaoyun]]></dc:creator></item><item><title><![CDATA[[AVCTF2021] AppVenture Login Part 2]]></title><description><![CDATA[<blockquote>
 <p>Ok, you got the flag, but I bet you&#39;ll never get my password!</p>
 </blockquote>
 <p>Basing off the description, the flag is probably the password. Even though we logged in as admin in the last challenge, we do not know of the password.</p>
@@ -105,7 +105,7 @@ flag{oops_looks_like_youre_not_blind}
 flag{oops_looks_like_youre_not_blind}
 </code></pre>
 <p>Flag obtained</p>
-]]></description><link>https://nush.app/blog/121/11/2/avctf2021-av-login-p2</link><guid isPermaLink="true">https://nush.app/blog/121/11/2/avctf2021-av-login-p2</guid><dc:creator><![CDATA[zhaoyun]]></dc:creator></item><item><title><![CDATA[[AVCTF2021] Espace 0]]></title><description><![CDATA[<p>The hardest challenge of the web category, but was actually solved before Login Part 0 since my brain was dead</p>
+]]></description><link>https://nush.app/blog/2021/12/21/avctf2021-av-login-p2</link><guid isPermaLink="true">https://nush.app/blog/2021/12/21/avctf2021-av-login-p2</guid><dc:creator><![CDATA[zhaoyun]]></dc:creator></item><item><title><![CDATA[[AVCTF2021] Espace 0]]></title><description><![CDATA[<p>The hardest challenge of the web category, but was actually solved before Login Part 0 since my brain was dead</p>
 <blockquote>
 <p>You&#39;ve used espace2, but what about espace0?</p>
 <p>Flag in <code>flag.txt</code></p>
@@ -147,7 +147,7 @@ def welcome():
 <pre><code>flag{yet_another_mal-coded_library}
 </code></pre>
 <p>Flag obtained</p>
-]]></description><link>https://nush.app/blog/121/11/2/avctf2021-espace-0</link><guid isPermaLink="true">https://nush.app/blog/121/11/2/avctf2021-espace-0</guid><dc:creator><![CDATA[zhaoyun]]></dc:creator></item><item><title><![CDATA[[AVCTF2021] Printwriter 1]]></title><description><![CDATA[<blockquote>
+]]></description><link>https://nush.app/blog/2021/12/21/avctf2021-espace-0</link><guid isPermaLink="true">https://nush.app/blog/2021/12/21/avctf2021-espace-0</guid><dc:creator><![CDATA[zhaoyun]]></dc:creator></item><item><title><![CDATA[[AVCTF2021] Printwriter 1]]></title><description><![CDATA[<blockquote>
 <p>My wonderful app works both as an echo server and a file lister!</p>
 <p>Bet you can&#39;t hack it! <code>nc 35.240.143.82 4203</code></p>
 </blockquote>
@@ -239,7 +239,7 @@ cat README.txt
 Hello, I was here ;) ZY
 </code></pre>
 </blockquote>
-]]></description><link>https://nush.app/blog/121/11/2/avctf2021-printwriter</link><guid isPermaLink="true">https://nush.app/blog/121/11/2/avctf2021-printwriter</guid><dc:creator><![CDATA[zhaoyun]]></dc:creator></item><item><title><![CDATA[[AVCTF2021] Super Secure Trustable Implementation]]></title><description><![CDATA[<blockquote>
+]]></description><link>https://nush.app/blog/2021/12/21/avctf2021-printwriter</link><guid isPermaLink="true">https://nush.app/blog/2021/12/21/avctf2021-printwriter</guid><dc:creator><![CDATA[zhaoyun]]></dc:creator></item><item><title><![CDATA[[AVCTF2021] Super Secure Trustable Implementation]]></title><description><![CDATA[<blockquote>
 <p>I&#39;ve added a bunch of filters, so my app must be really secure now.</p>
 <p>Flag in <code>flag.txt</code></p>
 <p>URL: <a href="http://35.240.143.82:4209/">http://35.240.143.82:4209/</a></p>
@@ -319,7 +319,7 @@ print(f&quot;&lt;h1&gt; Hello, {name}&quot;)
 <pre><code>flag{server_side_rendering_is_fun_but_dangerous_sometimes}
 </code></pre>
 <p>Flag obtained</p>
-]]></description><link>https://nush.app/blog/121/11/2/avctf2021-ssti</link><guid isPermaLink="true">https://nush.app/blog/121/11/2/avctf2021-ssti</guid><dc:creator><![CDATA[zhaoyun]]></dc:creator></item><item><title><![CDATA[Building Convolutional Neural Networks from Scratch - Part 1 (Matrix Calculus)]]></title><description><![CDATA[<h1 id="mathematics">Mathematics</h1>
+]]></description><link>https://nush.app/blog/2021/12/21/avctf2021-ssti</link><guid isPermaLink="true">https://nush.app/blog/2021/12/21/avctf2021-ssti</guid><dc:creator><![CDATA[zhaoyun]]></dc:creator></item><item><title><![CDATA[Building Convolutional Neural Networks from Scratch - Part 1 (Matrix Calculus)]]></title><description><![CDATA[<h1 id="mathematics">Mathematics</h1>
 <p><strong>Mathematics</strong> is an area of knowledge, which includes the study of such topics as numbers, formulas and related structures, shapes and spaces in which they are contained, and quantities and their changes. There is no general consensus about its exact scope or epistemological status. However, it is extremely labourious and time-consuming but necessary and is sometimes (albeit very rarely) interesting.</p>
 <p>Neural Networks are somewhat interesting. Everyone kind of knows the math behind NNs (the gist of it). It was taught in <strong>CS5131</strong> to a very limited extent but not many know about the full math behind deep and convolutional neural networks. I mean people get that it has something to do with backpropogation or whatever, but how do you scale it up to multiple value and multiple derivatives. As you will come to learn, these derivations are incredibly computationally intensive and time-consuming, especially during implementation. But I have done it because I care about AppVenture and I want to help the casual onlooker understand the many trials and tribulations a simple layer goes through to deliver what we should consider peak perfection. It was a fun but painful exercise and I gained a deeper understanding of the mathematical constructs that embody our world. Anyways, let&#39;s start out with a referesher. Warning that Matrix Math lurks ahead, so tread with caution. This is deeper than <strong>CS5131</strong> could have ever hoped to cover, so you will learn some stuff with this excercise. This first part is about the math behind deep neural networks.</p>
 <p>This article is written with some assumed knowledge of the reader but it is not that bad for most CS students especially since NNs are baby level for the most part. Nonetheless, assumed knowledge is written below.</p>
@@ -938,8 +938,8 @@ loss (10000/10000): 0.001
 <hr>
 
 <p>(Excruciatingly edited by Prannaya)</p>
-]]></description><link>https://nush.app/blog/122/4/4/cnn-from-scratch-1</link><guid isPermaLink="true">https://nush.app/blog/122/4/4/cnn-from-scratch-1</guid><dc:creator><![CDATA[zayan]]></dc:creator></item><item><title><![CDATA[Hello CTF!]]></title><description><![CDATA[<p>Sorry to disappoint- this is another hello world post. You can scroll past now :)</p>
-]]></description><link>https://nush.app/blog/121/10/4/hello-ctf</link><guid isPermaLink="true">https://nush.app/blog/121/10/4/hello-ctf</guid><dc:creator><![CDATA[lyc]]></dc:creator></item><item><title><![CDATA[Hello World!]]></title><description><![CDATA[<p>As per tradition, to celebrate the launch of the AppVenture Website featuring this shiny new blog (finally, after bursts of development over the year), we&#39;ll have:</p>
+]]></description><link>https://nush.app/blog/2022/05/26/cnn-from-scratch-1</link><guid isPermaLink="true">https://nush.app/blog/2022/05/26/cnn-from-scratch-1</guid><dc:creator><![CDATA[zayan]]></dc:creator></item><item><title><![CDATA[Hello CTF!]]></title><description><![CDATA[<p>Sorry to disappoint- this is another hello world post. You can scroll past now :)</p>
+]]></description><link>https://nush.app/blog/2021/11/18/hello-ctf</link><guid isPermaLink="true">https://nush.app/blog/2021/11/18/hello-ctf</guid><dc:creator><![CDATA[lyc]]></dc:creator></item><item><title><![CDATA[Hello World!]]></title><description><![CDATA[<p>As per tradition, to celebrate the launch of the AppVenture Website featuring this shiny new blog (finally, after bursts of development over the year), we&#39;ll have:</p>
 <pre><code class="language-javascript">console.log(&quot;Hello, World!&quot;);
 </code></pre>
 <p>Jokes aside, while we don&#39;t have a fixed posting schedule presently, here are things you can expect: write-ups after our CTF events, medium-style articles by our members on the latest tech news, reflections and sharings on projects, or even musings from interesting experiences and events we hold for the school and community.</p>
@@ -947,7 +947,7 @@ loss (10000/10000): 0.001
 <p>Since we&#39;re going to redesign the site, I thought it&#39;ll be a good chance to include more than just a project showcase. For an interest group, a blog seemed like a great chance for members to share about any cool things they may be up to. Especially with the new stuff launched this year, such as the cybersecurity division and monthly sharings. Of course, I can&#39;t predict how the future of this will go though, since it&#39;ll launch after I graduate. But, I&#39;m pretty optimistic about it.</p>
 <p>If you&#39;re interested in this blog, stay tuned for more!</p>
 <p>(Psst: If you&#39;re a nushie interested to write something or simply cross-post your articles here, feel free to <a href="/contact">contact us</a>)</p>
-]]></description><link>https://nush.app/blog/121/10/4/hello-world</link><guid isPermaLink="true">https://nush.app/blog/121/10/4/hello-world</guid><dc:creator><![CDATA[lyc]]></dc:creator></item><item><title><![CDATA[Picking the Right Cloud Service Provider  (and Getting a Free VPS)]]></title><description><![CDATA[<p>If you&#39;ve had to look for an online host for:</p>
+]]></description><link>https://nush.app/blog/2021/11/18/hello-world</link><guid isPermaLink="true">https://nush.app/blog/2021/11/18/hello-world</guid><dc:creator><![CDATA[lyc]]></dc:creator></item><item><title><![CDATA[Picking the Right Cloud Service Provider  (and Getting a Free VPS)]]></title><description><![CDATA[<p>If you&#39;ve had to look for an online host for:</p>
 <ul>
 <li>A static/dynamic website</li>
 <li>A backend API</li>
@@ -1033,4 +1033,4 @@ loss (10000/10000): 0.001
 <p>Find referral links online for DigitalOcean (90-day $100), Linode (60-day $100 credit) or Vultr (30-day $100) servers or just use your Oracle Cloud server.</p>
 <h1 id="epilogue-why-bother">Epilogue: Why bother?</h1>
 <p>Leveraging cloud services and exploiting the generosity of crazy big cloud providers lends itself well to the spirit of hacker culture, that is to say, the DIY ethic and finding creative or elaborate solutions to minor inconveniences. I&#39;ve tried hooking up my Wolfram Mathematica client to cloud compute server with Wolfram Language, or using <a href="https://sourceforge.net/projects/xming/">xming</a> to interface with COMSOL hosted somewhere else (this didn&#39;t work). I could stay and preach the value and satisfaction of self-hosting but I&#39;ll save it for another post. If you have anything you&#39;d like to share regarding your experiences with cloud hosting, message me on discord at <code>meecrob/hash/8207</code> or be sure to share it in the AppVenture server. </p>
-]]></description><link>https://nush.app/blog/122/5/4/picking-the-right-cloud-service</link><guid isPermaLink="true">https://nush.app/blog/122/5/4/picking-the-right-cloud-service</guid><dc:creator><![CDATA[vishalk]]></dc:creator></item></channel></rss>
+]]></description><link>https://nush.app/blog/2022/06/16/picking-the-right-cloud-service</link><guid isPermaLink="true">https://nush.app/blog/2022/06/16/picking-the-right-cloud-service</guid><dc:creator><![CDATA[vishalk]]></dc:creator></item></channel></rss>
