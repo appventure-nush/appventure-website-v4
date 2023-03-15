@@ -198,7 +198,7 @@ export default class AboutPage extends Vue {
 
   public data() {
     return {
-      selectedYear: 2022,
+      selectedYear: 2023,
       teams: {
         2017: [
           { name: 'Wayne', description: 'Wayne believes in using technology to make life better. Interested in everything from cryptography to web development, Wayne looks forward to the exciting world ahead. He is also Ambrose\'s best friend.' },
@@ -253,6 +253,7 @@ export default class AboutPage extends Vue {
           { name: 'Kai Wen', position: 'Events IC', description: '' },
           { name: 'Wenkai', position: 'Projects IC', description: '' },
           { name: 'Mahir', position: 'Cybersecurity IC', description: '' },
+	  { name: 'Junheng', position: 'Cybersecurity IC', description: '' }
         ],
         Teachers: [
           { name: 'Mrs Phylliscia Lee', position: 'Overall TIC', description: '' },
