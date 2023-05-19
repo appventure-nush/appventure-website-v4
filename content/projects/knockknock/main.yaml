@@ -1,0 +1,16 @@
+id: knockknock
+name: Knock Knock
+thumbnail: ./knockknock.png
+description: |
+  Knock Knock is a secure messaging application. It uses end-to-end encryption like other apps (e.g. WhatsApp) so no one can read your messages. It has contact hiding to hide contacts from others on your phone, using rhythm-based Knock Codes™. It prevents spam. It sends HD pictures. It looks cool. It’s Knock Knock.
+created:
+  contributors: [yueheng]
+  year: 2023
+type: /Module/Year-4
+tags: [web]
+gallery:
+  - ./knockknock.png
+achievements:
+attachment:
+website: https://github.com/Walnit/KnockKnock
+featured: false

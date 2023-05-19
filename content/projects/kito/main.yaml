@@ -1,0 +1,18 @@
+id: kito
+name: Kito
+thumbnail: ./kito2.png
+description: |
+  kito is a symptom tracker built to help aid those with chronic illnesses, such as autoimmune diseases. With an intuitive timeline, graphs for long-term analysis and a calendar for easy navigation to and fro, kito aims to be functional without sacrificing aesthetics.
+created:
+  contributors: [christiantan]
+  year: 2023
+type: /Module/Year-4
+tags: [web]
+gallery:
+  - ./kito2.png
+  - ./kito1.png
+  - ./kito3.png
+achievements:
+attachment: ./kito.apk
+website:
+featured: false

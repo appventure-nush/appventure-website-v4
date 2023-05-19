@@ -1,0 +1,16 @@
+id: heuristicpathfinding
+name: Heuristic pathfinding for the N-puzzle with neural networks
+thumbnail: ./heuristic.png
+description: |
+  The 15-puzzle is a very common puzzle game involving the sliding of tiles to reach a goal state. The 15-puzzle can be solved by using a pathfinding algorithm as you are finding a "path" to the goal state. I used A* which requires a heuristic to predict the number of moves to solve a given state. I used AI as the heuristic which learns from previously scrambled states with known path lengths. After training the model, I found that the Neural network was 16 times more efficient than one of the best man-made heuristics in terms of explored states.
+created:
+  contributors: [zayan]
+  year: 2022
+type: /Module/Year-5
+tags: [web]
+gallery:
+  - ./heuristic.png
+achievements:
+attachment:
+website:
+featured: false

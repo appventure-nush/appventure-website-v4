@@ -1,0 +1,16 @@
+id: nushchess
+name: NUSH Chess
+thumbnail: ./nushchess.png
+description: |
+  Do you enjoy chess, and do you enjoy coding? This is the game for you!
+created:
+  contributors: [stevecao,lamjunrong,javierlim]
+  year: 2022
+type: /AppVenture/School
+tags: [web]
+gallery:
+  - ./nushchess.png
+achievements:
+attachment:
+website: https://chess.nush.app
+featured: false

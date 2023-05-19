@@ -1,0 +1,16 @@
+id: leafer
+name: Leafer
+thumbnail: ./leafer.png
+description: |
+  Leafer is a plant journal app where users can identify their plant through taking a picture or live camera feed. The plant is then saved and catalogued where users can create individual notes and reminders. User data (i.e. plants, notes,…) is synced across devices.
+created:
+  contributors: [tranducnam]
+  year: 2023
+type: /Module/Year-4
+tags: [web]
+gallery:
+  - ./leafer.png
+achievements:
+attachment:
+website:
+featured: false

@@ -1,0 +1,16 @@
+id: nushdle
+name: NUSHdle
+thumbnail: ./nushdle.png
+description: |
+  This project was developed as a NUSH version of Wordle. However, it is more like a variant of Wordle known as Worldle. Everyday there is a new secret locations that players must figure out. Players must guess places in NUS High school such as the lower auditorium or computer lab 1 and with every guess, the proximity between the guess and the true secret place is displayed. Every day, the player is allowed 6 guesses. It is a unique and enriching way to learn more about the school.
+created:
+  contributors: [zayan, kane, yusimu]
+  year: 2023
+type: /AppVenture/School
+tags: [web]
+gallery:
+  - ./nushdle.png
+achievements:
+attachment:
+website: https://nush.link/nushdle
+featured: false
