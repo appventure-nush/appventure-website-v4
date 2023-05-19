@@ -4,7 +4,7 @@ thumbnail: ./nushchess.png
 description: |
   Do you enjoy chess, and do you enjoy coding? This is the game for you!
 created:
-  contributors: [stevecao,lamjunrong,javierlim]
+  contributors: [stevecao,junron,javierlim]
   year: 2022
 type: /AppVenture/School
 tags: [web]
