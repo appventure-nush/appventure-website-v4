@@ -2,7 +2,7 @@
 title: Angstrom CTF 2023
 slug: AngstromCTF-2023
 author: [kane]
-date: 2023-6-21
+date: 2023-06-21
 tags: [ctf,writeup]
 ---
 

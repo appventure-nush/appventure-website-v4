@@ -2,7 +2,7 @@
 title: SeeTF 2023 Writeups
 slug: SeeTF-2023
 author: [hugomaxlim]
-date: 2023-6-21
+date: 2023-06-21
 tags: [ctf,writeup]
 ---
 
