@@ -24,6 +24,7 @@ The most common example is communication between a device like a smartphone (act
 The NFC tag you're holding has many applications! Do your best to use this NFC tag in fun and interesting ways :)
 
 Here's some example applications (we encourage you to come up with more!):
+
 1. Directing people to websites (like in this case), or launching applications
 2. Contactless payments, similar to Google Pay and Apple Pay
 3. Automating tasks, like connecting to Wi-Fi or Bluetooth networks, unlocking smart locks, authenticating (2FA) with security key, or triggering shortcuts/automation on your phone (eg. iOS Shortcuts, for Android you can use other 3rd party apps)
