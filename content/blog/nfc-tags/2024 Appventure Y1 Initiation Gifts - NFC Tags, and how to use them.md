@@ -3,7 +3,7 @@ title: 2024 Appventure Y1 Initiation Gifts - NFC Tags, and how to use them
 slug: nfc-tags
 author: [kaiwen]
 date: 2023-12-22
-tags: [nfc]
+tags: [educational]
 ---
 ![Appventure Logo](./appventure_logo_1.jpg)
 ### _By **Appventure**__, NUSH's Computer Science Interest Group_
