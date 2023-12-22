@@ -6,7 +6,7 @@ date: 2023-12-22
 tags: [educational]
 ---
 ![Appventure Logo](./appventure_logo_1.jpg)
-### _By **Appventure**__, NUSH's Computer Science Interest Group_
+### _By **Appventure**_, NUSH's Computer Science Interest Group_
 
 ### **Welcome Message**
 
