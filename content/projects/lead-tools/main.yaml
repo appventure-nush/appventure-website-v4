@@ -26,4 +26,4 @@ gallery:
   - ./pic4.png
   - ./pic5.png
   - ./pic6.png
-attachment: ./leadtools.jar
+attachment: leadtools.jar

@@ -13,6 +13,6 @@ gallery:
   - ./kito1.png
   - ./kito3.png
 achievements:
-attachment: ./kito.apk
+attachment: kito.apk
 website:
 featured: false

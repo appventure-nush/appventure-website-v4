@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  web:
+    build: 
+      context: .
+      args:
+        - STATIC_URL=http://localhost:5001
+    ports:
+      - "5000:80"
+    depends_on:
+      - static
+  static:
+    build: 
+      context: ./static-large
+    ports:
+      - "5001:3000"

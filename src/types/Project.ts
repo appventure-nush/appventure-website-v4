@@ -17,7 +17,7 @@ interface Project {
   tags: Tag[];
   gallery: File[];
   website: string;
-  attachment: File;
+  attachment: string;
   featured?: boolean;
 }
 

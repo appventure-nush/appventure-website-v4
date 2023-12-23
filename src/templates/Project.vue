@@ -23,7 +23,7 @@
           <a
             class="button"
             v-if="$page.project.attachment"
-            :href="$page.project.attachment.src"
+            :href="attachmentLink"
           >
             <download-icon
               size="1x"
@@ -176,6 +176,7 @@ import TagChip from '@/components/TagChip.vue';
 
 import { Tag } from '@/types/Tag';
 import { Contribution } from '@/types/Project';
+import { STATIC_URL } from '../constants';
 
 @Component({
   // @ts-ignore
@@ -197,6 +198,11 @@ export default class Project extends Vue {
   get maintained(): Contribution[] {
     // @ts-ignore
     return this.$page.project.maintained;
+  }
+
+  get attachmentLink(): string {
+    // @ts-ignore
+    return STATIC_URL + '/' + this.$page.project.attachment;
   }
 }
 </script>
