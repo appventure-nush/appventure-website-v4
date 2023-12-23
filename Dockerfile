@@ -14,9 +14,6 @@ RUN apt-get update && apt-get install -y gettext-base
 RUN envsubst < src/constants.ts > src/constants.ts.tmp
 RUN mv src/constants.ts.tmp src/constants.ts
 
-# remove the readme in the static folder
-RUN rm static/README.md
-
 RUN yarn run gridsome build
 
 FROM nginx:alpine-slim AS deploy

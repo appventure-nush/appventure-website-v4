@@ -3,6 +3,10 @@
 
 .cache/
 dist/
-docs/
+doc/
 node_modules/
 static-large/
+.github/
+.husky/
+
+static/README.md
