@@ -61,9 +61,9 @@ Open TagWriter, and you should see the below screen.
 "Dataset" refers to the instructions you want to give your NFC tag. The app automatically saves prior instructions in "My datasets".
 
 1. Press "Write tags", then press "New dataset" to start writing to your NFC tag.
-![Tagwriter Write Screen](./tagwriter_write_1.jpg)
-1. Choose what to write from a variety of options, and enjoy!
-![Tagwriter Write 2](./tagwriter_write_2.jpg)
+    ![Tagwriter Write Screen](./tagwriter_write_1.jpg)
+2. Choose what to write from a variety of options, and enjoy!
+    ![Tagwriter Write 2](./tagwriter_write_2.jpg)
 
 If you have any queries or still can't get it to work, you can DM **[@appventure\_nush](https://www.instagram.com/appventure_nush)** on Instagram or email us at [appventure@nushigh.edu.sg](mailto:appventure@nushigh.edu.sg), or come to our booth during IG Fair! Tag us on Instagram to showcase your creative applications, or tell us during IG Fair :)
 
