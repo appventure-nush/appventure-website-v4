@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <main class="blog">
+    <main class="blog" v-if="$page.posts.pageInfo.currentPage===1">
       <div class="blog-list">
         <div class="preamble medium-container">
           <h1 class="text-center">
@@ -54,7 +54,7 @@ query BlogPage($page: Int) {
         id
         title
         path
-        date (format: "D. MMMM YYYY")
+        date (format: "DD MMMM YYYY")
         excerpt
         author {
           id
@@ -121,7 +121,7 @@ export default class BlogPage extends Vue {
   updateSearcher() {
     this.searcher = new Fuse<BlogPost>(this.loadedPosts, {
       threshold: 0.2,
-      keys: ['name', 'author.name', 'tags.name'],
+      keys: ['title', 'author.name', 'tags.name'],
     });
     this.isCalculating = true;
     this.filterPosts  = debounce(() => {
@@ -161,20 +161,41 @@ export default class BlogPage extends Vue {
     this.updateSearcher();
   }
 
+  mounted() {
+    // @ts-ignore
+    if (this.$page.posts.pageInfo.currentPage > 1) {
+      // redirect back to main page
+      // @ts-ignore
+      window.location = this.$url('/blog');
+    }
+  }
+
   async infiniteHandler($state: StateChanger): Promise<void> {
     // @ts-ignore
     if (this.currentPage + 1 > this.$page.posts.pageInfo.totalPages) {
       $state.complete();
     } else {
       // @ts-ignore
-      const { data } = await $fetch(
+      const { data } = await this.$fetch(
         `/blog/${this.currentPage + 1}`
       );
       if (data.posts.edges.length) {
         this.currentPage = data.posts.pageInfo.currentPage;
-        this.loadedPosts.push(...data.posts.edges);
+        let newPosts = data.posts.edges.map((n: any) => n.node);
+        newPosts = newPosts.filter( (n: any) => {
+          const tags = n.tags;
+          for (const tag of tags) {
+            if (tag.id === 'ctf') {
+              return false;
+            }
+          }
+          return true;
+        });
+        this.loadedPosts.push(...newPosts);
+        this.updateSearcher();
         $state.loaded();
       } else {
+        // console.log("fetch error");
         $state.complete();
       }
     }

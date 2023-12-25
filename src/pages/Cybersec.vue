@@ -72,7 +72,7 @@ query CybersecPage {
         id
         title
         path
-        date (format: "D. MMMM YYYY")
+        date (format: "DD MMMM YYYY")
         excerpt
         author {
           id

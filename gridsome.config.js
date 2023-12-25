@@ -27,7 +27,7 @@ module.exports = {
           tags: 'Tag',
         },
         remark: {
-          plugins: [['@gridsome/remark-prismjs', {transformInlineCode: true}],'gridsome-remark-katex'],
+          plugins: [['@gridsome/remark-prismjs', {transformInlineCode: true}],'gridsome-remark-katex','remark-attr'],
         },
       },
     },
@@ -54,6 +54,38 @@ module.exports = {
         },
       },
     },
+
+    {
+      use: 'gridsome-plugin-rss',
+      options: {
+        contentTypeName: 'BlogPost',
+        latest: true,
+        maxItems: 20,
+        feedOptions: {
+          title: 'nush.app Blogposts',
+          description: 'Featuring student-written articles on programming and internal events',
+          feed_url: 'https://nush.app/rss.xml',
+          site_url: 'https://nush.app',
+          language: 'en',
+        },
+        feedItemOptions: (node) => {
+          const url = `https://nush.app/blog/${node.date.getFullYear()}/${String(node.date.getMonth() + 1).padStart(2,'0')}/${String(node.date.getDate()).padStart(2,'0')}/${node.slug}`;
+          const marked = require('marked')
+          return {
+            title: node.title,
+            description: marked.parse(node.content),
+            url: url,
+            author: node.author.map((x) => x.name)[0],
+            date: node.date,
+            category: node.tags.map((x) => x.name),
+          };
+        },
+        output: {
+          dir: './dist',
+          name: 'rss.xml'
+        }
+      }
+    }
 
   ],
   templates: {

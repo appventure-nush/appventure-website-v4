@@ -53,7 +53,9 @@ where $A$ is a known square matrix, $\mathbf{b}$ is a known vector and $\mathbf{
 
 In this case, for the objective function we will use Linear Least Squares (LLS) function as it is an accurate thing to minimize in this case written below. 
 
-$$F(\mathbf{x}) = {||A\mathbf{x}-\mathbf{b}||}_{2}^{2}$$
+$$
+F(\mathbf{x}) = {||A\mathbf{x}-\mathbf{b}||}_{2}^{2}
+$$
 
 ### Matrix Calculus
 
@@ -62,38 +64,47 @@ Now, what do the weird lines and two occurences of "2" above mean and how exactl
 Firstly, let's revise derivatives wth this simple example:
 
 $$
+\newcommand{\dv}[2]{\frac{\mathrm{d}{#1}}{\mathrm{d}{#2}}}
+\newcommand{\ddv}[1]{\frac{\mathrm{d}}{\mathrm{d}{#1}}}
 \begin{aligned}
-y&=sin(x^2)+5\\
-\frac{dy}{dx}&=\frac{d}{dx}\left(sin(x^2)+5\right)\\
-&=2xcos(x^2)
+y&=\sin(x^2)+5\\
+\dv{y}{x}&=\ddv{x}(\sin(x^2)+5)\\
+&=2x \cos(x^2)
 \end{aligned}
 $$
 
 For functions with multiple variables, we can find the partial derivative with respect to each of the variables, as shown below:
 $$
+\newcommand{\pv}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\ppv}[1]{\frac{\partial}{\partial {#1}}}
 \begin{aligned}
 f(x,y)&=3xy+x^2\\
-\frac{\partial f(x,y)}{\partial x}&=3y+2x\\
-\frac{\partial f(x,y)}{\partial y}&=3x
+\ppv{x}(f(x,y))&=3y+2x\\
+\ppv{y}(f(x,y))&=3x
 \end{aligned}
 $$
 
 
 A thing to understand is that vectors are just a collection of numbers, so an n-sized vector will have n partial derivatives if the function is $f:\mathbb{R}^{n} \rightarrow \mathbb{R}$ (the derivative is known as the gradient). But do we represent these n partial derivatives as a column vector or row vector?
 
-$$\frac{\partial y}{\partial\mathbf{x}} = 
+$$
+\newcommand{\pv}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\ppv}[1]{\frac{\partial}{\partial {#1}}}
+\pv{y}{\mathbf{x}} = 
 \begin{bmatrix}
-\frac{\partial y}{\partial{\mathbf{x}}_{1}}\\
-\frac{\partial y}{\partial{\mathbf{x}}_{2}}\\
+\pv{y}{\mathbf{x}_{1}}\\
+\pv{y}{\mathbf{x}_{2}}\\
 \vdots\\
-\frac{\partial y}{\partial{\mathbf{x}}_{n}}\\
+\pv{y}{\mathbf{x}_{n}}\\
 \end{bmatrix}
 $$
 
 $$
-\frac{\partial y}{\partial\mathbf{x}} = 
+\newcommand{\pv}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\ppv}[1]{\frac{\partial}{\partial {#1}}}
+\pv{y}{\mathbf{x}} = 
 \begin{bmatrix}
-\frac{\partial y}{\partial{\mathbf{x}}_{1}} & \frac{\partial y}{\partial{\mathbf{x}}_{2}} & \cdots & \frac{\partial y}{\partial{\mathbf{x}}_{n}}
+\pv{y}{\mathbf{x}_{1}} & \pv{y}{\mathbf{x}_{2}} & \cdots & \pv{y}{\mathbf{x}_{n}}
 \end{bmatrix}
 $$
 
@@ -156,9 +167,11 @@ We see that it is kind of the same with single variable, where if we have $f(x)=
 
 Now we look at the lines and "2"s. This is a common function known as the euclidean norm or 2-norm.
 
-$$\|{\mathbf {x}}\|_{2}:={\sqrt {x_{1}^{2}+\cdots +x_{n}^{2}}}$$
+$$
+\|{\mathbf {x}}\|_{2}:={\sqrt {x_{1}^{2}+\cdots +x_{n}^{2}}}
+$$
 
-We then square it giving rise to the second "2". Now we define and do the same thing we did with $Ax-b$, $\|{\mathbf {y}}\|_{2}^{2}$ is $f:\mathbb{R}^{n} \rightarrow \mathbb{R}$. Hence, the derivative is a row vector.
+We then square it giving rise to the second "2". Now we define and do the same thing we did with $A\mathbf{x}-\mathbf{b}$, $\|{\mathbf {y}}\|_{2}^{2}$ is $f:\mathbb{R}^{n} \rightarrow \mathbb{R}$. Hence, the derivative is a row vector.
 
 $$
 \begin{aligned}

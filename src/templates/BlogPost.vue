@@ -50,7 +50,7 @@
 query ($id: ID!){
   post: blogPost (id: $id) {
     title
-    date (format: "D. MMMM YYYY")
+    date (format: "DD MMMM YYYY")
     author {
       name
       path
@@ -102,12 +102,12 @@ export default class BlogPost extends Vue {
     max-width: 100%;
   }
 
-  &::v-deep img[alt~="left-align"] {
+  &::v-deep img.left-align {
     display: block;
     margin-left: 0;
   }
 
-  &::v-deep img[alt~="right-align"] {
+  &::v-deep img.right-align {
     display: block;
     margin-right: 0;
   }

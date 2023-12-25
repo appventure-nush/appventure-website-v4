@@ -5,7 +5,8 @@ author: [kaiwen, liuwenkai]
 date: 2023-12-22
 tags: [educational]
 ---
-![AppVenture Logo left-align](./appventure_logo_100px.svg)
+
+![AppVenture Logo](./appventure_logo.svg){.left-align width=100}
 
 _by **AppVenture**, NUSH's Computer Science Interest Group_
 
@@ -71,6 +72,6 @@ We hope you will explore more about NFC tags and use this NFC tag creatively. Af
 
 Signing off,<br/>
 AppVenture Exco 2024<br/>
-![AppVenture Logo left-align](./appventure_logo_50px.svg)
+![AppVenture Logo](./appventure_logo.svg){.left-align width=50}
 
 *The tags are [here](https://www.amazon.sg/MATCHEASY-Waterproof-Rewritable-Compatible-Rectangular/dp/B0BZHZN7XM/ref=sr_1_3_sspa?adgrpid=98545307246&hvadid=587467106582&hvdev=c&hvlocphy=9062518&hvnetw=g&hvqmt=b&hvrand=11534621183993269782&hvtargid=kwd-299920919263&hydadcr=7631_340284&keywords=nfc%2B215&qid=1700834499&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1) if you want more product information.*
