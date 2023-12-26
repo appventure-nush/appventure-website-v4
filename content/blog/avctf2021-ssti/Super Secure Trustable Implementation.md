@@ -3,7 +3,7 @@ title: "[AVCTF2021] Super Secure Trustable Implementation"
 slug: avctf2021-ssti
 author: [zhaoyun]
 date: 2021-12-21
-tags: [ctf, web,writeup]
+tags: [ctf, web, writeup]
 ---
 
 > I've added a bunch of filters, so my app must be really secure now.
@@ -78,7 +78,7 @@ With some experimenting, we can find that
 (<type 'object'>,)
 ```
 
-The tuple inherits directly from `object`, hence we can find the list of types (extends object) by sending the payload 
+The tuple inherits directly from `object`, hence we can find the list of types (extends object) by sending the payload
 
 ##### `{{().__class__.__bases__[0].__subclasses__()}}`
 

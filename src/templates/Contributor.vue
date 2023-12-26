@@ -2,40 +2,57 @@
   <Layout>
     <main class="contributor">
       <div class="contributor-info text-center medium-container">
-        <g-image class="author-avatar" :alt="$page.contributor.name" :src="$page.contributor.avatar"/>
-        <h1 class="contributor-title">{{$page.contributor.name}}</h1>
-        <Epigraph v-if="$page.contributor.quote" :quote="$page.contributor.quote"/>
-        <p v-if="$page.contributor.bio" class="bio">{{ $page.contributor.bio }}</p>
+        <g-image
+          class="author-avatar"
+          :alt="$page.contributor.name"
+          :src="$page.contributor.avatar"
+        />
+        <h1 class="contributor-title">
+          {{ $page.contributor.name }}
+        </h1>
+        <Epigraph
+          v-if="$page.contributor.quote"
+          :quote="$page.contributor.quote"
+        />
+        <p v-if="$page.contributor.bio" class="bio">
+          {{ $page.contributor.bio }}
+        </p>
       </div>
-      <hr/>
+      <hr />
 
       <div class="contributions">
         <div class="timeline">
           <div
             class="tab"
-            v-for="type in [Contribution.BLOGPOST,Contribution.PROJECT]"
+            v-for="type in [Contribution.BLOGPOST, Contribution.PROJECT]"
             :key="type"
             @click="selectedType = type"
-            :class="[ selectedType === type ? 'selected' : '' ]"
+            :class="[selectedType === type ? 'selected' : '']"
           >
             {{ contributionLabel(type) }}
           </div>
         </div>
 
-      <div v-if="selectedType === Contribution.BLOGPOST" class="blog-list">
-<!--        <h3 class="text-center">Blog posts</h3>-->
-        <p class="empty-text text-center" v-if="$page.contributor.posts.edges.length === 0">
-          None found
-        </p>
-        <BlogCard
-          class="blog-entries"
-          v-for="blog in $page.contributor.posts.edges"
-          :key="blog.node.id"
-          :blog-post="blog.node"
-        />
-      </div>
+        <div v-if="selectedType === Contribution.BLOGPOST" class="blog-list">
+          <!--        <h3 class="text-center">Blog posts</h3>-->
+          <p
+            class="empty-text text-center"
+            v-if="$page.contributor.posts.edges.length === 0"
+          >
+            None found
+          </p>
+          <BlogCard
+            class="blog-entries"
+            v-for="blog in $page.contributor.posts.edges"
+            :key="blog.node.id"
+            :blog-post="blog.node"
+          />
+        </div>
         <div v-if="selectedType === Contribution.PROJECT" class="project-list">
-          <p class="empty-text text-center" v-if="$page.contributor.projects.edges.length === 0">
+          <p
+            class="empty-text text-center"
+            v-if="$page.contributor.projects.edges.length === 0"
+          >
             None found
           </p>
           <ProjectCard
@@ -43,7 +60,7 @@
             v-for="project in $page.contributor.projects.edges"
             :key="project.id"
             :project="project.node"
-            />
+          />
         </div>
       </div>
     </main>
@@ -122,10 +139,10 @@ query ($id: ID!) {
 </page-query>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import BlogCard from '../components/BlogCard.vue';
-import { Contribution } from '../types/Contribution';
-import ProjectCard from '../components/ProjectCard.vue';
+import { Component, Vue } from "vue-property-decorator";
+import BlogCard from "../components/BlogCard.vue";
+import { Contribution } from "../types/Contribution";
+import ProjectCard from "../components/ProjectCard.vue";
 
 @Component({
   components: {
@@ -133,19 +150,19 @@ import ProjectCard from '../components/ProjectCard.vue';
     BlogCard,
   },
 })
-
 export default class Contributor extends Vue {
   selectedType = Contribution.BLOGPOST;
   Contribution = Contribution;
 
-  contributionLabel(contribution: Contribution) : string {
-    switch(contribution) {
-      case Contribution.BLOGPOST: return "Blog Posts";
+  contributionLabel(contribution: Contribution): string {
+    switch (contribution) {
+      case Contribution.BLOGPOST:
+        return "Blog Posts";
       case Contribution.PROJECT:
-      default: return "Projects";
+      default:
+        return "Projects";
     }
   }
-
 }
 </script>
 
@@ -188,9 +205,9 @@ export default class Contributor extends Vue {
     margin-bottom: 2rem;
 
     .tab {
-      padding: .2rem .4rem;
-      margin: 0 .4rem;
-      border-radius: .4rem;
+      padding: 0.2rem 0.4rem;
+      margin: 0 0.4rem;
+      border-radius: 0.4rem;
 
       &:hover {
         background-color: #eee;
@@ -207,5 +224,4 @@ export default class Contributor extends Vue {
     margin: 0 0 2rem;
   }
 }
-
 </style>

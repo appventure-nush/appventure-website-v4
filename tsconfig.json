@@ -5,15 +5,12 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "noImplicitReturns": true,
-    "sourceMap": true,
-    "strict": true
+    "sourceMap": true
   },
   "baseUrl": ".",
   "paths": {
     "~/*": ["./src/*"],
     "@/*": ["./src/*"]
   },
-  "include": [
-    "./src/**/*","./decs.d.ts"
-  ]
+  "include": ["./src/**/*", "./decs.d.ts"]
 }

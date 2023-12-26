@@ -1,10 +1,6 @@
 <template>
-  <div class="medium-container blog-card"
-       :style="cardStyle">
-    <g-link
-      class="link"
-      :to="blogPost.path"
-    />
+  <div class="medium-container blog-card" :style="cardStyle">
+    <g-link class="link" :to="blogPost.path" />
     <div class="info">
       <h3 class="title">
         {{ blogPost.title }}
@@ -12,24 +8,25 @@
       <p class="excerpt">
         {{ blogPost.excerpt }}
       </p>
-      <BlogMeta :post="blogPost"/>
+      <BlogMeta :post="blogPost" />
       <div class="tags">
-        <TagChip class="tagChip"
-                 v-for="tag in sortedTags"
-                 :key="tag.id"
-                 :tag="tag"
-                 :link-enabled="false"
-                 />
+        <TagChip
+          class="tagChip"
+          v-for="tag in sortedTags"
+          :key="tag.id"
+          :tag="tag"
+          :link-enabled="false"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
-import BlogMeta from './BlogMeta.vue';
-import TagChip from './TagChip.vue';
-import { BlogPost } from '@/types/BlogPost';
+import { Component, Vue, Prop } from "vue-property-decorator";
+import BlogMeta from "./BlogMeta.vue";
+import TagChip from "./TagChip.vue";
+import { BlogPost } from "@/types/BlogPost";
 @Component({
   components: { BlogMeta, TagChip },
 })
@@ -37,36 +34,36 @@ export default class BlogCard extends Vue {
   @Prop() blogPost!: BlogPost;
 
   get cardStyle(): object {
-    if (this.blogPost.tags.map(it => it.category).includes('cybersec')){
+    if (this.blogPost.tags.map((it) => it.category).includes("cybersec")) {
       return {
-        backgroundColor:'#41B883',
-        backgroundImage: `url(${require('@/assets/images/flag.svg')})`,
-      }
+        backgroundColor: "#41B883",
+        backgroundImage: `url(${require("@/assets/images/flag.svg")})`,
+      };
     } else {
       return {
-        backgroundColor: '#009a90',
-        backgroundImage: `url(${require('@/assets/images/nush_logo_asterisk.svg')})`,
-      }
+        backgroundColor: "#009a90",
+        backgroundImage: `url(${require("@/assets/images/nush_logo_asterisk.svg")})`,
+      };
     }
-
   }
-  get backgroundColor() : string {
+  get backgroundColor(): string {
     // @ts-ignore
-    return
+    return;
   }
-  get backgroundImage() : string {
+  get backgroundImage(): string {
     // @ts-ignore
-    return
+    return;
   }
-  get sortedTags() : Array<object> {
-    // @ts-ignore
-    return this.blogPost.tags.sort((u: object,v: object) => v.category.localeCompare(u.category));
+  get sortedTags(): Array<object> {
+    return this.blogPost.tags.sort((u: object, v: object) =>
+      // @ts-ignore
+      v.category.localeCompare(u.category),
+    );
   }
 }
 </script>
 
 <style lang="scss" scoped>
-
 div.blog-card {
   position: relative;
   //background-color: var(--bg-color);
@@ -79,9 +76,12 @@ div.blog-card {
 
   background-image: url("../assets/images/nush_logo_asterisk.svg");
   background-repeat: no-repeat;
-  background-position: right (-20 + random(40)-20) + px bottom (-100 + random(40)-20 ) + px;
+  background-position: right (-20 + random(40)-20) + px bottom
+    (-100 + random(40)-20) + px;
 
-  transition: box-shadow .3s, transform .3s;
+  transition:
+    box-shadow 0.3s,
+    transform 0.3s;
   &:hover {
     transform: translateY(-1px);
     box-shadow: 0 5px 23px 4px rgba(177, 184, 183, 0.93);

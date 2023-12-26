@@ -3,7 +3,7 @@ title: SeeTF 2023 Writeups
 slug: SeeTF-2023
 author: [hugomaxlim]
 date: 2023-06-21
-tags: [ctf,writeup]
+tags: [ctf, writeup]
 ---
 
 ## Onelinecrypto
@@ -18,7 +18,7 @@ Entire Challenge:
 assert __import__('re').fullmatch(r'SEE{\w{23}}',flag:=input()) and not int.from_bytes(flag.encode(),'big')%13**37
 ```
 
-The assert statement will return an error if the condition given is not fulfilled otherwise nothing is returned. The first part of the condition is doing a regex match of the form `SEE{\w{23}}`, thus the flag contains 23 characters in the curly braces. The second part of the condition ensures that the flag is divisible by $13^{37}$ in long form. 
+The assert statement will return an error if the condition given is not fulfilled otherwise nothing is returned. The first part of the condition is doing a regex match of the form `SEE{\w{23}}`, thus the flag contains 23 characters in the curly braces. The second part of the condition ensures that the flag is divisible by $13^{37}$ in long form.
 
 I actually tried a lot of things at first like brute force and greedy from right to left, but they didn't even come close
 
@@ -28,7 +28,7 @@ $2^{16}\cdot$ `b'a'`$+2^8\cdot$ `b'b'` $+2^0 \cdot$ `b'c'`
 
 so essentially you are trying to solve for
 
-`b'SEE{...}'` $ + \sum_{i=1}^{23} 2^{8i} x_I \equiv 0 \pmod{13^{37}}$
+`b'SEE{...}'` $ + \sum\_{i=1}^{23} 2^{8i} x_I \equiv 0 \pmod{13^{37}}$
 
 where all of $x_i$ satisfies `\w`
 
@@ -72,7 +72,7 @@ $$
 \end{bmatrix}
 $$
 
-which would return some vectors looking like 
+which would return some vectors looking like
 
 $$\begin{bmatrix}a & b & c & ax_1 + bx_2 + cx_3 \end{bmatrix}$$
 
@@ -137,17 +137,19 @@ for I in sol:
     print(i)
 ```
 
-and we actually get a row ending with $\begin{bmatrix}1&0\end{bmatrix}$, the final row, `(-19, 6, 1, -23, -3, -26, -6, -6, -16, 17, -24, -48, 16, 13, -22, -1, 11, 23, -38, 12, 6, 23, 7, 1, 0)`. 
+and we actually get a row ending with $\begin{bmatrix}1&0\end{bmatrix}$, the final row, `(-19, 6, 1, -23, -3, -26, -6, -6, -16, 17, -24, -48, 16, 13, -22, -1, 11, 23, -38, 12, 6, 23, 7, 1, 0)`.
 
 To get the solution from here we re-add the 1 subtracted in the last row to the first 23 numbers
 
 but anyways this still isnt the solution. quite obviously the values of $x_i$ here go into the negatives which dont make valid characters for the flag. what characters are even valid anyway?
+
 ```py
 good=""
 for I in string.printable:
     if __import__('re').fullmatch(r'\w', i):
         good+=i
 ```
+
 `0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_`
 
 Yeah this is not a lot to work with but whatever. anyways, to make the values obtained more positive and around these values, I realised that since they are currently kind of distributed around 0, and I have to add 1 to compensate for the last row, what if I just make it so I have to add a lot more?
@@ -159,7 +161,6 @@ Essentially, set those values to not -1 but like -90, so that after adding 90 I 
 From here, real hell began where I had to keep changing the offsets here and the weights to try to magically get a valid set of values. however, for unexplainable reasons I kept getting rows with 1 bad value (of 140 most of the time). this is probably because the challenge was set to make it so it was barely possible to find a valid string
 
 Anyways after much experimentation, the final code that found the flag for me was
-
 
 ```py
 found = False
@@ -189,6 +190,7 @@ while not found:
 giving `SEE{luQ5xmNUKgEEDO_c5LoJCum}` eventually.
 
 ## Semaphore
+
 Category: Crypto
 
 They give:
@@ -206,10 +208,11 @@ for nibble in flag.hex():
 ```
 
 Basically, for every digit in the flag's hex, they append that digit to the flag and then sign it with ecdsa, and print the signature. The thing is,
- 1. Signatures are not meant to encrypt a message
- 2. The fact that they randomly append a digit to the flag every time is highly suspicious
 
-So doing a little bit of testing we can see that 
+1.  Signatures are not meant to encrypt a message
+2.  The fact that they randomly append a digit to the flag every time is highly suspicious
+
+So doing a little bit of testing we can see that
 
 ```py
 flag = b"SEE{"

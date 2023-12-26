@@ -6,7 +6,7 @@
       :src="avatar"
       class="picture"
       v-if="avatar"
-    >
+    />
     <div class="text">
       <h3>{{ name }}</h3>
       <h5>{{ position }}</h5>
@@ -14,6 +14,39 @@
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+const ProfileProps = Vue.extend({
+  props: {
+    name: {
+      default: "",
+      type: String,
+    },
+    position: {
+      default: "",
+      type: String,
+    },
+    description: {
+      default: "",
+      type: String,
+    },
+  },
+});
+
+@Component
+export default class Profile extends ProfileProps {
+  get avatar() {
+    const fileName = this.name.toLowerCase().replace(" ", "_");
+    try {
+      return require(`@/assets/images/profiles/${fileName}.jpg`);
+    } catch {
+      return undefined;
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .profile {
@@ -46,36 +79,3 @@
   }
 }
 </style>
-
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-
-const ProfileProps = Vue.extend({
-  props: {
-    name: {
-      default: '',
-      type: String,
-    },
-    position: {
-      default: '',
-      type: String,
-    },
-    description: {
-      default: '',
-      type: String,
-    },
-  },
-});
-
-@Component
-export default class Profile extends ProfileProps {
-  get avatar() {
-    const fileName = this.name.toLowerCase().replace(' ', '_');
-    try {
-      return require(`@/assets/images/profiles/${fileName}.jpg`);
-    } catch {
-      return undefined;
-    }
-  }
-}
-</script>

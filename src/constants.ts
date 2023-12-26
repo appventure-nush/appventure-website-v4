@@ -1,1 +1,1 @@
-export const STATIC_URL = "$STATIC_URL";
+export const STATIC_URL = "%STATIC_URL%";

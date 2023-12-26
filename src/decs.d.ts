@@ -1,1 +1,1 @@
-declare module 'vue-gallery'
+declare module "vue-gallery";

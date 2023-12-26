@@ -1,4 +1,4 @@
-FROM node:16 AS builder
+FROM node:16-slim AS builder
 
 WORKDIR /app
 
@@ -9,9 +9,7 @@ RUN yarn install --frozen-lockfile
 # replace the values in constants.ts
 COPY src/constants.ts src/constants.ts
 ARG STATIC_URL
-ENV STATIC_URL ${STATIC_URL}
-RUN apt-get update && apt-get install -y gettext-base
-RUN envsubst < src/constants.ts > src/constants.ts.tmp
+RUN sed "s#%STATIC_URL%#${STATIC_URL}#g" src/constants.ts > src/constants.ts.tmp
 
 # copy everything in
 COPY . .

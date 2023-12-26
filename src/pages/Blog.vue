@@ -1,13 +1,12 @@
 <template>
   <Layout>
-    <main class="blog" v-if="$page.posts.pageInfo.currentPage===1">
+    <main class="blog" v-if="$page.posts.pageInfo.currentPage === 1">
       <div class="blog-list">
         <div class="preamble medium-container">
-          <h1 class="text-center">
-            Blog posts
-          </h1>
+          <h1 class="text-center">Blog posts</h1>
           <p class="lede text-center">
-            Featuring student-written articles on programming and internal events
+            Featuring student-written articles on programming and internal
+            events
           </p>
 
           <div class="filter-box">
@@ -15,7 +14,7 @@
               class="search-bar"
               placeholder="Search posts..."
               v-model="searchValue"
-            >
+            />
             <p>{{ searchIndicator }}</p>
           </div>
         </div>
@@ -29,10 +28,7 @@
           />
         </transition-group>
         <ClientOnly>
-          <infinite-loading
-            @infinite="infiniteHandler"
-            spinner="spiral"
-          >
+          <infinite-loading @infinite="infiniteHandler" spinner="spiral">
             <div slot="no-more" />
             <div slot="no-results" />
           </infinite-loading>
@@ -75,21 +71,19 @@ query BlogPage($page: Int) {
 </page-query>
 
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator';
-import BlogCard from '@/components/BlogCard.vue';
-import { StateChanger } from 'vue-infinite-loading';
-import { BlogPost } from '../types/BlogPost';
-import Fuse from 'fuse.js';
+import { Component, Vue, Watch } from "vue-property-decorator";
+import BlogCard from "@/components/BlogCard.vue";
+import { StateChanger } from "vue-infinite-loading";
+import { BlogPost } from "../types/BlogPost";
+import Fuse from "fuse.js";
 
-import { debounce } from 'lodash';
-import {Tag} from "../types/Tag";
+import { debounce } from "lodash";
 
 @Component({
   components: {
     BlogCard,
   },
 })
-
 export default class BlogPage extends Vue {
   loadedPosts: BlogPost[] = [];
   currentPage: number = 1;
@@ -102,17 +96,17 @@ export default class BlogPage extends Vue {
   filteredPosts: BlogPost[] = [];
   filterPosts: CallableFunction = () => {}; // need to assign in created
 
-	public metaInfo() {
-		return {
-			title: 'Blog',
-		}
-	}
+  public metaInfo() {
+    return {
+      title: "Blog",
+    };
+  }
 
   get searchIndicator(): string {
     if (this.isCalculating) {
-      return '⟳ Searching';
+      return "⟳ Searching";
     } else if (this.searchValueIsDirty) {
-      return '... Typing';
+      return "... Typing";
     } else {
       return `✓ ${this.filteredPosts.length} result(s) found`;
     }
@@ -121,14 +115,14 @@ export default class BlogPage extends Vue {
   updateSearcher() {
     this.searcher = new Fuse<BlogPost>(this.loadedPosts, {
       threshold: 0.2,
-      keys: ['title', 'author.name', 'tags.name'],
+      keys: ["title", "author.name", "tags.name"],
     });
     this.isCalculating = true;
-    this.filterPosts  = debounce(() => {
+    this.filterPosts = debounce(() => {
       if (!this.searcher) return;
       this.isCalculating = true;
       this.filteredPosts = this.searchValue.length
-        ? this.searcher.search(this.searchValue).map((r) => r.item) 
+        ? this.searcher.search(this.searchValue).map((r) => r.item)
         : this.loadedPosts;
 
       this.isCalculating = false;
@@ -148,13 +142,13 @@ export default class BlogPage extends Vue {
       this.searchValue = this.$route.query.search as string;
     // @ts-ignore
     this.loadedPosts = this.$page.posts.edges.map((n) => n.node);
-    this.loadedPosts = this.loadedPosts.filter( (n) => {
-        const tags = n.tags;
-        for (const tag of tags) {
-            if (tag.id === 'ctf') {
-              return false;
-            }
+    this.loadedPosts = this.loadedPosts.filter((n) => {
+      const tags = n.tags;
+      for (const tag of tags) {
+        if (tag.id === "ctf") {
+          return false;
         }
+      }
       return true;
     });
 
@@ -166,7 +160,7 @@ export default class BlogPage extends Vue {
     if (this.$page.posts.pageInfo.currentPage > 1) {
       // redirect back to main page
       // @ts-ignore
-      window.location = this.$url('/blog');
+      window.location = this.$url("/blog");
     }
   }
 
@@ -176,16 +170,14 @@ export default class BlogPage extends Vue {
       $state.complete();
     } else {
       // @ts-ignore
-      const { data } = await this.$fetch(
-        `/blog/${this.currentPage + 1}`
-      );
+      const { data } = await this.$fetch(`/blog/${this.currentPage + 1}`);
       if (data.posts.edges.length) {
         this.currentPage = data.posts.pageInfo.currentPage;
         let newPosts = data.posts.edges.map((n: any) => n.node);
-        newPosts = newPosts.filter( (n: any) => {
+        newPosts = newPosts.filter((n: any) => {
           const tags = n.tags;
           for (const tag of tags) {
-            if (tag.id === 'ctf') {
+            if (tag.id === "ctf") {
               return false;
             }
           }

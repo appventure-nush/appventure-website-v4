@@ -6,7 +6,7 @@
         <template v-for="(author, i) in post.author">
           <span v-if="i && i === post.author.length - 1"> , </span>
           <span v-else-if="i > 0">, </span>
-          <ContributorTag :contributor="author"/>
+          <ContributorTag :contributor="author" />
         </template>
       </template>
     </small>
@@ -14,8 +14,8 @@
 </template>
 
 <script lang="ts">
-import { Vue, Prop, Component } from 'vue-property-decorator';
-import ContributorTag from './ContributorTag.vue';
+import { Vue, Prop, Component } from "vue-property-decorator";
+import ContributorTag from "./ContributorTag.vue";
 @Component({
   components: { ContributorTag },
 })

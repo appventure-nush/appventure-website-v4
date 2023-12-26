@@ -1,6 +1,6 @@
 id: virtual-school-tour
 name: Virtual School Tour
-thumbnail: ./Thumbnail.png           
+thumbnail: ./Thumbnail.png
 description: |
   Can’t visit us due to Covid-19? Fret not! We bring our campus to you...
   The Virtual School Tour is an interactive guide, allowing all to come and experience NUS High from the comfort of your home. Listen to our student leaders as they show you around our campus. Now with 360 degree view! 
@@ -15,7 +15,7 @@ maintained:
 type: /AppVenture/School
 tags: [unity]
 gallery:
-  - ./matthew.png 
+  - ./matthew.png
   - ./ICT lab.png
   - ./map.png
   - ./carlyne.png

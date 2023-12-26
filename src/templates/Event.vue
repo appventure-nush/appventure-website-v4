@@ -2,15 +2,9 @@
   <Layout>
     <main class="event-info">
       <div class="demo">
-        <Carousel
-          :gallery="$page.event.gallery"
-          v-if="$page.event.gallery"
-        />
+        <Carousel :gallery="$page.event.gallery" v-if="$page.event.gallery" />
 
-        <div
-          v-if="sortedTags.length"
-          class="tags"
-        >
+        <div v-if="sortedTags.length" class="tags">
           <h5>Tags:</h5>
           <TagChip
             class="tag-chip"
@@ -19,7 +13,7 @@
             :tag="tag"
             :filled="false"
             :link-enabled="true"
-            :router-link="{ path: '/projects', query: {search: tag.id} }"
+            :router-link="{ path: '/projects', query: { search: tag.id } }"
           />
         </div>
       </div>
@@ -30,9 +24,11 @@
         </h1>
         <div class="meta">
           <pre class="type text-center">{{ $page.event.type }}</pre>
-          <hr>
+          <hr />
         </div>
-        <div class="description">{{ $page.event.description }}</div>
+        <div class="description">
+          {{ $page.event.description }}
+        </div>
       </div>
     </main>
   </Layout>
@@ -61,31 +57,33 @@ query ($id: ID!) {
 </page-query>
 
 <script lang="ts">
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
-import Carousel from '@/components/Carousel.vue';
-import { GlobeIcon, DownloadIcon } from 'vue-feather-icons';
-import TagChip from '@/components/TagChip.vue';
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
+import Carousel from "@/components/Carousel.vue";
+import { GlobeIcon, DownloadIcon } from "vue-feather-icons";
+import TagChip from "@/components/TagChip.vue";
 
-import { Tag } from '@/types/Tag';
+import { Tag } from "@/types/Tag";
 
 @Component({
   // @ts-ignore
   components: { TagChip, Carousel, GlobeIcon, DownloadIcon },
 })
 export default class Event extends Vue {
-	public metaInfo() {
-		return {
-			// @ts-ignore
-			title: 'Event: ' + this.$page.event.name,
-		}
-	}
+  public metaInfo() {
+    return {
+      // @ts-ignore
+      title: "Event: " + this.$page.event.name,
+    };
+  }
 
   get sortedTags(): Tag[] {
     // @ts-ignore
-		if (!this.$page.event.tags) return []
+    if (!this.$page.event.tags) return [];
     // @ts-ignore
-    return this.$page.event.tags.sort((u: Tag,v: Tag) => v.category.localeCompare(u.category));
+    return this.$page.event.tags.sort((u: Tag, v: Tag) =>
+      v.category.localeCompare(u.category),
+    );
   }
 }
 </script>
@@ -107,8 +105,8 @@ export default class Event extends Vue {
       justify-content: center;
 
       .button {
-        margin: .4rem .4rem;
-        border-radius: .4rem;
+        margin: 0.4rem 0.4rem;
+        border-radius: 0.4rem;
         width: 46%;
 
         // hack to avoid accidental select when going through carousel
@@ -149,8 +147,8 @@ export default class Event extends Vue {
 
 @media (max-width: 620px) {
   .tags {
-	margin: 0 auto;
-	text-align: center;
+    margin: 0 auto;
+    text-align: center;
   }
 
   .event-info {

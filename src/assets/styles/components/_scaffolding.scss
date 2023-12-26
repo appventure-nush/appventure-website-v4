@@ -6,7 +6,8 @@
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font: $font-style $font-variant $font-weight #{$font-size}/#{$line-height} $font-family;
+  font: $font-style $font-variant $font-weight #{$font-size}/#{$line-height}
+    $font-family;
   font-size: $font-size;
 }
 
@@ -166,7 +167,9 @@ kbd {
   background-color: #f7f7f7;
   border: 1px solid #ccc;
   border-radius: 3px;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.2),
+    0 0 0 2px #fff inset;
   color: #333;
   display: inline-block;
   font-family: Helvetica, Arial, sans-serif;

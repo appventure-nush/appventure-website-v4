@@ -14,10 +14,7 @@
             :href="$page.project.website"
             target="_blank"
           >
-            <globe-icon
-              size="1x"
-              class="icon"
-            />
+            <globe-icon size="1x" class="icon" />
             Visit Website
           </a>
           <a
@@ -25,18 +22,12 @@
             v-if="$page.project.attachment"
             :href="attachmentLink"
           >
-            <download-icon
-              size="1x"
-              class="icon"
-            />
+            <download-icon size="1x" class="icon" />
             Download
           </a>
         </div>
 
-        <div
-          v-if="sortedTags.length"
-          class="tags"
-        >
+        <div v-if="sortedTags.length" class="tags">
           <h5>Tags:</h5>
           <TagChip
             class="tag-chip"
@@ -45,14 +36,11 @@
             :tag="tag"
             :filled="false"
             :link-enabled="true"
-            :router-link="{ path: '/projects', query: {search: tag.id} }"
+            :router-link="{ path: '/projects', query: { search: tag.id } }"
           />
         </div>
 
-        <div
-          class="maintenance-log"
-          v-if="maintained && maintained.length"
-        >
+        <div class="maintenance-log" v-if="maintained && maintained.length">
           <h5>Maintenance Log:</h5>
           <div
             class="maintenance-log contributors text-left"
@@ -65,13 +53,13 @@
               :key="contributor.id"
             >
               <ContributorTag :contributor="contributor" />
-              <span v-if="idx < maintainers.contributors.length-2">, </span>
-              <span v-if="idx === maintainers.contributors.length-2">, and </span>
+              <span v-if="idx < maintainers.contributors.length - 2">, </span>
+              <span v-if="idx === maintainers.contributors.length - 2"
+                >, and
+              </span>
             </div>
-            <div class="text-center">
-              ({{ maintainers.year }})
-            </div>
-            <hr>
+            <div class="text-center">({{ maintainers.year }})</div>
+            <hr />
           </div>
         </div>
       </div>
@@ -83,7 +71,7 @@
         <div class="meta">
           <pre class="type text-center">{{ $page.project.type }}</pre>
 
-          <hr>
+          <hr />
           <div class="contributors text-left">
             <h5>Created by:</h5>
             <div
@@ -92,34 +80,34 @@
               :key="creator.id"
             >
               <ContributorTag :contributor="creator" />
-              <span v-if="idx < $page.project.created.contributors.length-2">, </span>
-              <span v-if="idx === $page.project.created.contributors.length-2">, and </span>
+              <span v-if="idx < $page.project.created.contributors.length - 2"
+                >,
+              </span>
+              <span v-if="idx === $page.project.created.contributors.length - 2"
+                >, and
+              </span>
             </div>
-            <div
-              class="text-center"
-              v-if="$page.project.created.year"
-            >
+            <div class="text-center" v-if="$page.project.created.year">
               ({{ $page.project.created.year }})
             </div>
-            <hr>
+            <hr />
           </div>
           <div
             class="achievements"
-            v-if="$page.project.achievements && $page.project.achievements.length"
+            v-if="
+              $page.project.achievements && $page.project.achievements.length
+            "
           >
             <h5>Achievements</h5>
             <ul>
-              <li
-                v-for="a in $page.project.achievements"
-                :key="a.id"
-              >
+              <li v-for="a in $page.project.achievements" :key="a.id">
                 {{ a }}
               </li>
             </ul>
-            <hr>
+            <hr />
           </div>
         </div>
-        <div class="description" v-html="$page.project.description"></div>
+        <div class="description" v-html="$page.project.description" />
       </div>
     </main>
   </Layout>
@@ -167,32 +155,34 @@ query ($id: ID!) {
 </page-query>
 
 <script lang="ts">
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
-import Carousel from '@/components/Carousel.vue';
-import { GlobeIcon, DownloadIcon } from 'vue-feather-icons';
-import ContributorTag from '@/components/ContributorTag.vue';
-import TagChip from '@/components/TagChip.vue';
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
+import Carousel from "@/components/Carousel.vue";
+import { GlobeIcon, DownloadIcon } from "vue-feather-icons";
+import ContributorTag from "@/components/ContributorTag.vue";
+import TagChip from "@/components/TagChip.vue";
 
-import { Tag } from '@/types/Tag';
-import { Contribution } from '@/types/Project';
-import { STATIC_URL } from '../constants';
+import { Tag } from "@/types/Tag";
+import { Contribution } from "@/types/Project";
+import { STATIC_URL } from "../constants";
 
 @Component({
   // @ts-ignore
   components: { TagChip, ContributorTag, Carousel, GlobeIcon, DownloadIcon },
 })
 export default class Project extends Vue {
-	public metaInfo() {
-		return {
-			// @ts-ignore
-			title: 'Project: ' + this.$page.project.name,
-		}
-	}
+  public metaInfo() {
+    return {
+      // @ts-ignore
+      title: "Project: " + this.$page.project.name,
+    };
+  }
 
   get sortedTags(): Tag[] {
     // @ts-ignore
-    return this.$page.project.tags.sort((u: Tag,v: Tag) => v.category.localeCompare(u.category));
+    return this.$page.project.tags.sort((u: Tag, v: Tag) =>
+      v.category.localeCompare(u.category),
+    );
   }
 
   get maintained(): Contribution[] {
@@ -202,7 +192,7 @@ export default class Project extends Vue {
 
   get attachmentLink(): string {
     // @ts-ignore
-    return STATIC_URL + '/' + this.$page.project.attachment;
+    return STATIC_URL + "/" + this.$page.project.attachment;
   }
 }
 </script>
@@ -224,8 +214,8 @@ export default class Project extends Vue {
       justify-content: center;
 
       .button {
-        margin: .4rem .4rem;
-        border-radius: .4rem;
+        margin: 0.4rem 0.4rem;
+        border-radius: 0.4rem;
         width: 46%;
 
         // hack to avoid accidental select when going through carousel
@@ -236,7 +226,7 @@ export default class Project extends Vue {
         user-select: none;
       }
     }
-    
+
     .tag-chip {
       display: inline;
     }
@@ -267,8 +257,8 @@ export default class Project extends Vue {
 
 @media (max-width: 620px) {
   .tags {
-	margin: 0 auto;
-	text-align: center;
+    margin: 0 auto;
+    text-align: center;
   }
 
   .project-showcase {

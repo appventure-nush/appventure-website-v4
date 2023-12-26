@@ -1,15 +1,21 @@
 <template>
   <span>
-  <g-link class="contributor-link" :to="contributor.path">
-    <g-image class="contributor-avatar" :alt="contributor.name" :src="contributor.avatar"/>
-  </g-link>
-  <g-link class="contributor-link" :to="contributor.path">{{ contributor.name }}</g-link>
+    <g-link class="contributor-link" :to="contributor.path">
+      <g-image
+        class="contributor-avatar"
+        :alt="contributor.name"
+        :src="contributor.avatar"
+      />
+    </g-link>
+    <g-link class="contributor-link" :to="contributor.path">{{
+      contributor.name
+    }}</g-link>
   </span>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import { Contributor } from '../types/Contributor';
+import { Vue, Component, Prop } from "vue-property-decorator";
+import { Contributor } from "../types/Contributor";
 
 @Component
 export default class ContributorTag extends Vue {

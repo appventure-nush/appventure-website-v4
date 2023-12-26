@@ -3,11 +3,10 @@
     <main class="project">
       <div class="project-list">
         <div class="preamble medium-container">
-          <h1 class="text-center">
-            Projects
-          </h1>
+          <h1 class="text-center">Projects</h1>
           <p class="lede text-center">
-            Student made projects that improve the quality of life of those in school as well as the community
+            Student made projects that improve the quality of life of those in
+            school as well as the community
           </p>
 
           <div class="filter-box">
@@ -17,32 +16,34 @@
                 v-for="category in Object.keys(allProjects)"
                 :key="category"
                 @click="loadedCategory = category"
-                :class="[ loadedCategory == category ? 'selected' : '' ]"
+                :class="[loadedCategory == category ? 'selected' : '']"
               >
-                {{ category.charAt(0).toUpperCase() + category.slice(1).toLowerCase() }}
+                {{
+                  category.charAt(0).toUpperCase() +
+                  category.slice(1).toLowerCase()
+                }}
               </div>
-              <hr style="margin-bottom: 2rem">
+              <hr style="margin-bottom: 2rem" />
             </div>
 
             <input
               class="search-bar"
               placeholder="Search projects..."
               v-model="searchValue"
-            >
+            />
             <p>{{ searchIndicator }}</p>
           </div>
         </div>
 
         <div v-for="yearlyProjects in groupedProjects">
           {{ yearlyProjects[0].created.year }}
-          <hr/>
+          <hr />
           <ProjectCard
             v-for="project in yearlyProjects"
             :key="project.id"
             :project="project"
           />
         </div>
-
       </div>
     </main>
   </Layout>
@@ -106,20 +107,19 @@ query ProjectPage {
 </page-query>
 
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator';
-import ProjectCard from '@/components/ProjectCard.vue';
-import { Project } from '../types/Project';
-import Fuse from 'fuse.js';
+import { Component, Vue, Watch } from "vue-property-decorator";
+import ProjectCard from "@/components/ProjectCard.vue";
+import { Project } from "../types/Project";
+import Fuse from "fuse.js";
 
-import { debounce, groupBy } from 'lodash';
+import { debounce, groupBy } from "lodash";
 
 @Component({
   components: { ProjectCard },
 })
-
 export default class ProjectsPage extends Vue {
   allProjects: { [category: string]: Project[] } = {};
-  loadedCategory: string = 'module';
+  loadedCategory: string = "module";
 
   searchValue: string = "";
   searchValueIsDirty: boolean = false;
@@ -128,16 +128,17 @@ export default class ProjectsPage extends Vue {
   searcher: Fuse<Project> | undefined;
   filteredProjects: Project[] = [];
   get groupedProjects() {
-    return Object.values(groupBy(this.filteredProjects, project => project.created.year))
-      .sort((a, b) => b[0].created.year - a[0].created.year);
+    return Object.values(
+      groupBy(this.filteredProjects, (project) => project.created.year),
+    ).sort((a, b) => b[0].created.year - a[0].created.year);
   }
   filterProjects: CallableFunction = () => {}; // need to assign in created
 
-	public metaInfo() {
-		return {
-			title: 'Projects',
-		}
-	}
+  public metaInfo() {
+    return {
+      title: "Projects",
+    };
+  }
 
   get loadedProjects(): Project[] {
     return this.allProjects[this.loadedCategory];
@@ -145,9 +146,9 @@ export default class ProjectsPage extends Vue {
 
   get searchIndicator(): string {
     if (this.isCalculating) {
-      return '⟳ Searching';
+      return "⟳ Searching";
     } else if (this.searchValueIsDirty) {
-      return '... Typing';
+      return "... Typing";
     } else {
       return `✓ ${this.filteredProjects.length} result(s) found`;
     }
@@ -157,7 +158,7 @@ export default class ProjectsPage extends Vue {
   updateSearcher() {
     this.searcher = new Fuse<Project>(this.loadedProjects, {
       threshold: 0.2,
-      keys: ['name', 'created.contributors.name', 'tags.name'],
+      keys: ["name", "created.contributors.name", "tags.name"],
     });
     this.isCalculating = true;
     this.filterProjects = debounce(() => {
@@ -171,7 +172,7 @@ export default class ProjectsPage extends Vue {
       this.searchValueIsDirty = false;
     }, 100);
     this.filterProjects();
-		this.$router.push({ query: { category: this.loadedCategory } })
+    this.$router.push({ query: { category: this.loadedCategory } });
   }
 
   @Watch("searchValue")
@@ -193,7 +194,7 @@ export default class ProjectsPage extends Vue {
       competition: this.$page.competitionProjects.edges.map((n) => n.node),
       // @ts-ignore
       appventure: this.$page.appventureProjects.edges.map((n) => n.node),
-    }
+    };
 
     this.updateSearcher();
   }
@@ -214,9 +215,9 @@ export default class ProjectsPage extends Vue {
   margin-bottom: 16px;
 
   .tab {
-    padding: .2rem .4rem;
-    margin: 0 .4rem;
-    border-radius: .4rem;
+    padding: 0.2rem 0.4rem;
+    margin: 0 0.4rem;
+    border-radius: 0.4rem;
 
     &:hover {
       background-color: #eee;

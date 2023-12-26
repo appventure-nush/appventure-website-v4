@@ -4,14 +4,20 @@
     :to="'/projects/' + project.id"
   >
     <g-image
-            class="thumbnail"
-            :src="project.thumbnail || 'https://via.placeholder.com/128'" />
+      class="thumbnail"
+      :src="project.thumbnail || 'https://via.placeholder.com/128'"
+    />
     <div class="content">
-      <h5 class="name">{{ project.name }}</h5>
+      <h5 class="name">
+        {{ project.name }}
+      </h5>
       <div v-if="fancy" class="created">
         <span v-for="(c, idx) in project.created.contributors" :key="c.id">
-          {{c.name}}<span v-if="idx < project.created.contributors.length-2">, </span>
-          <span v-if="idx === project.created.contributors.length-2">, and </span>
+          {{ c.name
+          }}<span v-if="idx < project.created.contributors.length - 2">, </span>
+          <span v-if="idx === project.created.contributors.length - 2"
+            >, and
+          </span>
         </span>
       </div>
       <div v-if="fancy" class="tags">
@@ -21,7 +27,8 @@
           :key="tag.id"
           :tag="tag"
           :filled="false"
-          :link-enabled="false" />
+          :link-enabled="false"
+        />
       </div>
     </div>
   </g-link>
@@ -31,23 +38,21 @@
 </static-query>
 
 <script lang="ts">
-import { Component, Vue, Prop  } from 'vue-property-decorator';
-import { Tag } from '../types/Tag';
-import { Project } from '../types/Project';
-import TagChip from './TagChip.vue';
-import { Contribution } from '../types/Contribution';
+import { Component, Vue, Prop } from "vue-property-decorator";
+import { Project } from "../types/Project";
+import TagChip from "./TagChip.vue";
+import { Contribution } from "../types/Contribution";
 @Component({
-  components: { TagChip},
+  components: { TagChip },
 })
 export default class ProjectCard extends Vue {
   @Prop() project!: Project;
   @Prop({ default: true }) fancy!: boolean;
-  Contribution = Contribution
+  Contribution = Contribution;
 }
 </script>
 
 <style lang="scss" scoped>
-
 .project-card {
   position: relative;
   text-decoration: none;
@@ -63,7 +68,7 @@ export default class ProjectCard extends Vue {
   box-shadow: 0 5px 9px 2px rgba(0, 0, 0, 0.1);
 
   background-color: white;
-  transition: all .2s;
+  transition: all 0.2s;
   &:hover {
     transform: translateY(-1px);
     box-shadow: 0 5px 23px 4px rgba(0, 0, 0, 0.1);
@@ -84,14 +89,14 @@ export default class ProjectCard extends Vue {
     margin-top: 8px;
 
     .name {
-		  margin: 0;
+      margin: 0;
 
-			display: -webkit-box;
-		  -webkit-line-clamp: 2;
-		  -webkit-box-orient: vertical;
-		  overflow: hidden;
-		  text-overflow: ellipsis;
-		}
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }
 
@@ -105,7 +110,7 @@ export default class ProjectCard extends Vue {
   box-shadow: 0 5px 9px 2px rgba(0, 0, 0, 0.1);
 
   background-color: white;
-  transition: all .3s;
+  transition: all 0.3s;
   &:hover {
     transform: translateY(-1px);
     box-shadow: 0 5px 23px 4px rgba(0, 0, 0, 0.1);
@@ -146,5 +151,4 @@ export default class ProjectCard extends Vue {
     }
   }
 }
-
 </style>

@@ -1,6 +1,6 @@
 - id: codybarr
   name: Cody Barr
-#  To ensure support for local avatar object is still in schema with existing code
+  #  To ensure support for local avatar object is still in schema with existing code
   avatar: ./images/placeholder.png
   bio: I enjoy long walks off something something
   quote: hi
@@ -26,22 +26,17 @@
 - id: jamesc
   name: James Chin Jia Jun
 
-
 - id: ihurt
   name: Tan I-hur
-
 
 - id: xuant
   name: Teh Xu An
 
-
 - id: yeshuy
   name: Ye Yushi
 
-
 - id: ethanyap
   name: Ethan Yap
-
 
 - id: limheelai
   name: Lim Hee Lai
@@ -49,42 +44,32 @@
 - id: jianxic
   name: Chen Jianxi
 
-
 - id: yujinl
   name: Li Yujin
-
 
 - id: bohany
   name: Yu Bohan
 
-
 - id: lyc
   name: Li Yue Chen
-
 
 - id: leongys
   name: Leong Yu Siang
 
-
 - id: zhaoyun
   name: Zhao Yun
-
 
 - id: teewayne
   name: Tee Weile Wayne
 
-
 - id: jingxuan
   name: Tay Jing Xuan
-
 
 - id: ambrose
   name: Chua Chi Meng, Ambrose
 
-
 - id: sanashwin
   name: Sanil Kumar Ashwin
-
 
 - id: danlimhai
   name: Daniel Lim Hai
@@ -181,5 +166,3 @@
 
 - id: hugomaxlim
   name: Hugo Maximus Lim
-
-

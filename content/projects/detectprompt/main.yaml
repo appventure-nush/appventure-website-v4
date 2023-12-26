@@ -4,12 +4,12 @@ thumbnail: ./detectprompt.png
 description: |
   With the rise of AI artists like DALL-E and Midjourney, the work of real artists are being devalued in today’s society. Thus, we created a detector to identify AI-generated images, based on images generated from Midjourney, to help consumers identify cheaply-made AI art from real artists’ work! Try it out with the QR code above!
 created:
-  contributors: [liuwenkai,kaiwen]
+  contributors: [liuwenkai, kaiwen]
   year: 2023
 type: /Module/Year-5
 tags: [web]
 gallery:
-    - ./detectprompt.png
+  - ./detectprompt.png
 achievements:
 attachment:
 website: https://squiddy.me/prompt-artistry

@@ -4,5 +4,5 @@ banner: ./placeholder.png
 description: A series of Cybersecurity Capture-the-Flag competitions held regularly for members to learn and pit their skills against one another.
 type: /Internal/Events
 tags: [ctf]
-gallery: 
+gallery:
   - ./placeholder.png

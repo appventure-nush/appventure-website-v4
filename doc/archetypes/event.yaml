@@ -1,9 +1,9 @@
-id: 
-name: 
+id:
+name:
 banner: ./file.xxx
 description: |
   ...
 type: /External/Workshop
 tags: [tagID]
-gallery: 
+gallery:
   - ./file.xxx

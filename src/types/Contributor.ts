@@ -1,10 +1,9 @@
-
 interface Contributor {
-  avatar: any,
-  bio: string
-  id: string,
-  name: string,
-  path: string,
-  quote: string,
+  avatar: any;
+  bio: string;
+  id: string;
+  name: string;
+  path: string;
+  quote: string;
 }
-export {Contributor};
+export { Contributor };

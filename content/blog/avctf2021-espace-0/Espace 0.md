@@ -3,7 +3,7 @@ title: "[AVCTF2021] Espace 0"
 slug: avctf2021-espace-0
 author: [zhaoyun]
 date: 2021-12-21
-tags: [ctf, web,writeup]
+tags: [ctf, web, writeup]
 ---
 
 The hardest challenge of the web category, but was actually solved before Login Part 0 since my brain was dead
@@ -26,7 +26,7 @@ assert yaml.__version__ == "5.3.1"
 @app.route("/")
 def index():
     return render_template("./index.html")
-    
+
 @app.route("/", methods=["POST"])
 def welcome():
     student_data = request.form.get("student_data")
@@ -65,6 +65,3 @@ flag{yet_another_mal-coded_library}
 ```
 
 Flag obtained
-
-
-

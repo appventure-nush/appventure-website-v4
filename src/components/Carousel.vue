@@ -1,42 +1,41 @@
 <template>
   <div class="medium-container carousel">
     <div ref="viewport" class="viewport" dir="ltr" @scroll="handleScroll">
-      <g-image class="image"
-        v-for="i in this.gallery"
-        :src="i"
-        :key="i.src"
-      />
+      <g-image class="image" v-for="i in gallery" :src="i" :key="i.src" />
     </div>
     <div class="viewport-indicator">
-      <div 
-        v-for="(i, idx) in this.gallery" 
+      <div
+        v-for="(i, idx) in gallery"
         :key="i.src"
         :class="'light' + (idx == activeIdx ? ' active' : '')"
         @click="setIndex(idx)"
-      >
-      </div>
+      />
     </div>
 
     <div class="navigation">
       <div class="prev button" @click="prev()" v-if="gallery && activeIdx > 0">
-        <chevron-left-icon size="1.5x" ></chevron-left-icon>
+        <chevron-left-icon size="1.5x" />
       </div>
-      <div class="next button" @click="next()" v-if="gallery && activeIdx < gallery.length-1">
-        <chevron-right-icon size="1.5x"></chevron-right-icon>
+      <div
+        class="next button"
+        @click="next()"
+        v-if="gallery && activeIdx < gallery.length - 1"
+      >
+        <chevron-right-icon size="1.5x" />
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop  } from 'vue-property-decorator';
-import { ChevronLeftIcon, ChevronRightIcon } from 'vue-feather-icons';
+import { Component, Vue, Prop } from "vue-property-decorator";
+import { ChevronLeftIcon, ChevronRightIcon } from "vue-feather-icons";
 
 @Component({
-  components: { ChevronLeftIcon, ChevronRightIcon  },
+  components: { ChevronLeftIcon, ChevronRightIcon },
 })
 export default class Carousel extends Vue {
-  @Prop() gallery!: typeof Image[];
+  @Prop() gallery!: (typeof Image)[];
   viewport?: HTMLElement;
   activeIdx = 0;
   index = null;
@@ -47,26 +46,30 @@ export default class Carousel extends Vue {
   }
 
   prev() {
-    this.setIndex(this.activeIdx-1 < 0 ? this.gallery.length-1 : this.activeIdx-1);
+    this.setIndex(
+      this.activeIdx - 1 < 0 ? this.gallery.length - 1 : this.activeIdx - 1,
+    );
   }
 
   next() {
-    this.setIndex(this.activeIdx+1 === this.gallery.length ? 0 : this.activeIdx+1);
+    this.setIndex(
+      this.activeIdx + 1 === this.gallery.length ? 0 : this.activeIdx + 1,
+    );
   }
 
   setIndex(i: number) {
-    this.viewport?.querySelectorAll('img')[i].scrollIntoView({
-      behavior: 'smooth',
-      block: 'end',
-      inline: 'nearest',
+    this.viewport?.querySelectorAll("img")[i].scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
     });
   }
 
   handleScroll() {
     if (!this.viewport) return;
     const vp = this.viewport;
-    vp.querySelectorAll('img').forEach((e, idx) => {
-      if (vp.scrollLeft >= e.offsetLeft-32) {
+    vp.querySelectorAll("img").forEach((e, idx) => {
+      if (vp.scrollLeft >= e.offsetLeft - 32) {
         this.activeIdx = idx;
       }
     });
@@ -78,7 +81,7 @@ export default class Carousel extends Vue {
 .carousel {
   position: relative;
   margin-top: 2rem;
-  margin-bottom: 2rem; 
+  margin-bottom: 2rem;
 
   .viewport {
     display: flex;
@@ -88,7 +91,9 @@ export default class Carousel extends Vue {
 
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
-    &::-webkit-scrollbar { display: none; } /* Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    } /* Chrome, Safari and Opera */
 
     .image {
       background-color: white;
@@ -120,7 +125,7 @@ export default class Carousel extends Vue {
     .light.active {
       background-color: $primary-color;
     }
-  } 
+  }
 
   .button {
     padding: 0;
@@ -137,8 +142,8 @@ export default class Carousel extends Vue {
     transition: all 0.3s;
 
     &:hover {
-      filter: saturate(1.0);
-      opacity: 1.0;
+      filter: saturate(1);
+      opacity: 1;
     }
   }
 
@@ -154,5 +159,4 @@ export default class Carousel extends Vue {
     top: calc(50% - 1.5rem);
   }
 }
-
 </style>

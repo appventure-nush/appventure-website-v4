@@ -1,6 +1,6 @@
-# AppVenture Website V4 
+# AppVenture Website V4
 
-This project is based the starter template for Gridsome using Typescript. It uses **eslint** and **typescript** for static code analysis. In order to integrate these tools with Visual Studio Code, you'll need to install **ESLint** and **Vetur** extensions for the editor. 
+This project is based the starter template for Gridsome using Typescript. It uses **eslint** and **typescript** for static code analysis. In order to integrate these tools with Visual Studio Code, you'll need to install **ESLint** and **Vetur** extensions for the editor.
 
 Before contributing a blog article, check the [documentation](doc/contributions.md)
 
@@ -23,7 +23,7 @@ Before contributing a blog article, check the [documentation](doc/contributions.
 
 ### 4. Static Code Analysis - Visual Studio Code
 
-As mentioned before, in order to lint your Typescript code in `*.vue` *Single File Components* with *vscode* you'll need to install [`ESLint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [`Vetur`](https://marketplace.visualstudio.com/items?itemName=octref.vetur) extensions for the editor.
+As mentioned before, in order to lint your Typescript code in `*.vue` _Single File Components_ with _vscode_ you'll need to install [`ESLint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [`Vetur`](https://marketplace.visualstudio.com/items?itemName=octref.vetur) extensions for the editor.
 
 Use the links above to install the extensions, or follow the steps below:
 
@@ -33,15 +33,16 @@ Use the links above to install the extensions, or follow the steps below:
 4. Do same thing for **Vetur** extension
 
 ### 5. Useful links
-* [Repository Documentation](doc/contributions.md)
-* [Gridsome docs](https://gridsome.org/docs/)
-* [Typescript docs](https://www.typescriptlang.org/docs/)
-* [ESLint docs](https://eslint.org/)
-* [ESLint rules](https://eslint.org/docs/rules/)
-* [Typescript rules](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules)
-* [Vue rules](https://vuejs.github.io/eslint-plugin-vue/rules/)
-* [ESLint extension for vscode](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-* [Vetur extension for vscode](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
+
+- [Repository Documentation](doc/contributions.md)
+- [Gridsome docs](https://gridsome.org/docs/)
+- [Typescript docs](https://www.typescriptlang.org/docs/)
+- [ESLint docs](https://eslint.org/)
+- [ESLint rules](https://eslint.org/docs/rules/)
+- [Typescript rules](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules)
+- [Vue rules](https://vuejs.github.io/eslint-plugin-vue/rules/)
+- [ESLint extension for vscode](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Vetur extension for vscode](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
 
 ### 6. Build and Run Docker Container
 

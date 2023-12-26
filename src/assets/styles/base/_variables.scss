@@ -28,7 +28,7 @@ $desktop: $medium !default;
 $background: white !default;
 //$primary-color: #0366ee !default;
 $primary-color: #009a90 !default;
-$secondary-color: #333F48 !default;
+$secondary-color: #333f48 !default;
 $accent-color: #cdcdcd !default;
 $alternate-background: #fafafa !default;
 $alternate-color: #404040 !default;
@@ -38,7 +38,7 @@ $highlight: #ffeea8 !default;
 $error: #d33c40 !default;
 $success: #29de7d !default;
 $bq-border: 8px solid #f0f0f0 !default;
-$ctf: #41B883FF !default;
+$ctf: #41b883ff !default;
 
 //==============================================================================
 // Typography
@@ -52,14 +52,23 @@ $font-variant: normal !default;
 $font-weight: normal !default;
 $font-color: #404040 !default;
 //$font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif !default;
-$font-family: Titillium Web, Helvetica Neue, Helvetica, Arial, sans-serif !default;
+$font-family:
+  Titillium Web,
+  Helvetica Neue,
+  Helvetica,
+  Arial,
+  sans-serif !default;
 $line-height: 1.6 !default;
 
 // Headings
 $heading-font-color: #404040 !default;
 $heading-font-weight: 600 !default;
 //$heading-font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial,
-$heading-font-family: Titillium Web, Helvetica Neue, Helvetica, Arial,
+$heading-font-family:
+  Titillium Web,
+  Helvetica Neue,
+  Helvetica,
+  Arial,
   sans-serif !default;
 $heading-line-height: 1.2 !default;
 
@@ -102,7 +111,13 @@ $button-background: $primary-color !default;
 $button-background-hover: darken($button-background, 10%) !default;
 $button-color: #ffffff !default;
 $button-font-weight: 600 !default;
-$button-font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif !default;
+$button-font-family:
+  -apple-system,
+  BlinkMacSystemFont,
+  Helvetica Neue,
+  Helvetica,
+  Arial,
+  sans-serif !default;
 $button-font-size: 1rem !default;
 $button-border-width: 1px !default;
 $button-border-style: solid !default;
@@ -131,9 +146,11 @@ $round-buttons: 40px !default;
 //==============================================================================
 
 $forms: (
-  '[type=color], [type=date], [type=datetime], [type=datetime-local], [type=email],        [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=url], [type=week], [type=time], select, textarea'
+  "[type=color], [type=date], [type=datetime], [type=datetime-local], [type=email],        [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=url], [type=week], [type=time], select, textarea"
 ) !default;
-$buttons: ('.button, a.button, button, [type=submit], [type=reset], [type=button]') !default;
+$buttons: (
+  ".button, a.button, button, [type=submit], [type=reset], [type=button]"
+) !default;
 $input-background: transparent !default;
 $placeholder: darken($accent-color, 20%) !default;
 $form-border: 1px solid $border-color !default;

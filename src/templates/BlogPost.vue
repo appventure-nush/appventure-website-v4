@@ -12,10 +12,7 @@
         <h1 class="text-center">
           {{ $page.post.title }}
         </h1>
-        <BlogMeta
-          class="text-center"
-          :post="$page.post"
-        />
+        <BlogMeta class="text-center" :post="$page.post" />
         <div class="tagChips flex-row justify-center">
           <TagChip
             class="tagChip"
@@ -24,22 +21,19 @@
             :tag="tag"
             :filled="false"
             :link-enabled="true"
-            :router-link="{ path: '/blog', query: {search: tag.id} }"
+            :router-link="{ path: '/blog', query: { search: tag.id } }"
           />
         </div>
       </div>
-      <hr class="title-rule">
+      <hr class="title-rule" />
       <div class="blog-body">
-        <div
-          class="content"
-          v-html="$page.post.content"
-        />
+        <div class="content" v-html="$page.post.content" />
         <div>
           <img
             class="end-mark text-center"
             src="@/assets/images/appventure_logo_nobg.svg"
             alt="end-mark"
-          >
+          />
         </div>
       </div>
     </main>
@@ -67,26 +61,28 @@ query ($id: ID!){
 }
 </page-query>
 <script lang="ts">
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
-import BlogMeta from '../components/BlogMeta';
-import TagChip from '../components/TagChip.vue';
-import { Tag } from '../types/Tag';
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
+import BlogMeta from "../components/BlogMeta";
+import TagChip from "../components/TagChip.vue";
+import { Tag } from "../types/Tag";
 
 @Component({
   components: { BlogMeta, TagChip },
 })
 export default class BlogPost extends Vue {
-	public metaInfo() {
-		return {
-			// @ts-ignore
-			title: 'Blog: ' + this.$page.post.title,
-		}
-	}
+  public metaInfo() {
+    return {
+      // @ts-ignore
+      title: "Blog: " + this.$page.post.title,
+    };
+  }
 
   get sortedTags(): Tag[] {
     // @ts-ignore
-    return this.$page.post.tags.sort((u: Tag,v: Tag) => v.category.localeCompare(u.category));
+    return this.$page.post.tags.sort((u: Tag, v: Tag) =>
+      v.category.localeCompare(u.category),
+    );
   }
 }
 </script>
@@ -112,7 +108,7 @@ export default class BlogPost extends Vue {
     margin-right: 0;
   }
 }
-.blog-poster{
+.blog-poster {
   margin-left: -20%;
   max-width: 140%;
 }
@@ -136,6 +132,4 @@ export default class BlogPost extends Vue {
     margin-top: 1rem;
   }
 }
-
-
 </style>

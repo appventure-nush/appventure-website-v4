@@ -7,16 +7,14 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
-
     steps:
-#      - name: Use Node.js 16.19.0
-#        uses: actions/setup-node@v3
-#        with:
-#          node-version: 16.19.0
-#      - run: npm run genrss
+      #      - name: Use Node.js 16.19.0
+      #        uses: actions/setup-node@v3
+      #        with:
+      #          node-version: 16.19.0
+      #      - run: npm run genrss
       - uses: actions/checkout@v2
 
       - name: Push image to AppVenture registry
@@ -33,11 +31,10 @@ jobs:
       - name: Check if static files changed
         uses: dorny/paths-filter@v2
         id: filter
-        with: 
+        with:
           filters: |
             static:
               - 'static-large/**'
-
 
       - name: Push large static files image to AppVenture registry
         uses: docker/build-push-action@v1

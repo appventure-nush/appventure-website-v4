@@ -1,6 +1,6 @@
-const path = require('path')
-const fs = require('fs-extra')
-const yaml = require('js-yaml')
+const path = require("path");
+const fs = require("fs/promises");
+const yaml = require("js-yaml");
 
 module.exports = function (api) {
   api.loadSource(async (store) => {
@@ -15,37 +15,41 @@ module.exports = function (api) {
         created: Contribution
         maintained: [Contribution]
       }
-    `)
+    `);
 
     // contributors
-    const authorsPath = path.join(__dirname, 'content/contributors/contributors.yaml');
-    const authorsRaw = await fs.readFile(authorsPath, 'utf8');
+    const authorsPath = path.join(
+      __dirname,
+      "content/contributors/contributors.yaml",
+    );
+    const authorsRaw = await fs.readFile(authorsPath, "utf8");
     const authorsJson = yaml.load(authorsRaw);
-    const authors = store.addCollection('Contributor');
+    const authors = store.addCollection("Contributor");
 
-
-    authorsJson.forEach(({id,avatar,...fields }) => {
-      avatar = (!avatar) ? `https://source.boringavatars.com/pixel/120/${id}?colors=009A90,333F48,41B883` : avatar;
+    authorsJson.forEach(({ id, avatar, ...fields }) => {
+      avatar = !avatar
+        ? `https://source.boringavatars.com/pixel/120/${id}?colors=009A90,333F48,41B883`
+        : avatar;
       authors.addNode({
         id,
         avatar,
         internal: {
-          origin:authorsPath
+          origin: authorsPath,
         },
-        ...fields
+        ...fields,
       });
     });
 
     // tagging
-    const tagsPath = path.join(__dirname, 'content/tags/tags.yaml');
-    const tagsRaw = await fs.readFile(tagsPath, 'utf8');
+    const tagsPath = path.join(__dirname, "content/tags/tags.yaml");
+    const tagsRaw = await fs.readFile(tagsPath, "utf8");
     const tagsJson = yaml.load(tagsRaw);
-    const tags = store.addCollection('Tag');
+    const tags = store.addCollection("Tag");
 
-    tagsJson.forEach(({id,...fields}) => {
+    tagsJson.forEach(({ id, ...fields }) => {
       tags.addNode({
         id,
-        ...fields
+        ...fields,
       });
     });
   });

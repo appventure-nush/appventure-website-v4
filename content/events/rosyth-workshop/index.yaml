@@ -4,5 +4,5 @@ banner: ./placeholder.png
 description: Outreach programme students from Rosyth Primary School introducing NUS High's CS curriculum as well as Python programming with Microbit.
 type: /External/Workshop
 tags: [outreach]
-gallery: 
+gallery:
   - ./placeholder.png

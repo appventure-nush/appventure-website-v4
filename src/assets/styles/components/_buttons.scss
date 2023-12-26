@@ -25,7 +25,8 @@
 
 // Buttons on hover
 %buttons-hover {
-  border: $button-border-width $button-border-style darken($button-border-color, 10%);
+  border: $button-border-width $button-border-style
+    darken($button-border-color, 10%);
   background: $button-background-hover;
   color: $button-color;
   text-decoration: none;
@@ -33,7 +34,8 @@
 
 // Buttons on focus
 %buttons-focus {
-  border: $button-border-width $button-border-style darken($button-border-color, 10%);
+  border: $button-border-width $button-border-style
+    darken($button-border-color, 10%);
   background: darken($button-background, 10%);
   color: $button-color;
   text-decoration: none;

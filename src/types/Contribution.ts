@@ -1,3 +1,4 @@
 export enum Contribution {
-  BLOGPOST,PROJECT
+  BLOGPOST,
+  PROJECT,
 }

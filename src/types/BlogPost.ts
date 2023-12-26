@@ -1,5 +1,5 @@
-import { Tag } from './Tag';
-import { Contributor } from './Contributor';
+import { Tag } from "./Tag";
+import { Contributor } from "./Contributor";
 
 interface BlogPost {
   id: string;

@@ -1,8 +1,8 @@
 interface Tag {
-  id: string,
-  name: string,
-  description: string,
-  category: string,
+  id: string;
+  name: string;
+  description: string;
+  category: string;
 }
 
-export {Tag};
+export { Tag };

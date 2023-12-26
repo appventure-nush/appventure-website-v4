@@ -17,17 +17,20 @@ If you've had to look for an online host for:
 or other usecases, then it can be hard to choose which service to use, especially for the thinking self-hoster wishing optimize their productivity. In fact, here is the list of cloud services I'll be covering in this post alone.
 
 **Static webhosts**
+
 - Vercel
 - Netlify
 - Surge.sh
 - Github pages (+ Github actions)
 
 **Big Cloud**
+
 - Amazon Web Services (AWS)
 - Google Cloud Products (GCP)
-- Oracle Cloud 
+- Oracle Cloud
 
-**Independent  Virtual Private Server (VPS) Providers** 
+**Independent Virtual Private Server (VPS) Providers**
+
 - DigitalOcean
 - Linode
 - Vultr
@@ -44,11 +47,9 @@ To setup your own server, login to your oracle cloud dashboard and click on **Cr
 
 ## DigitalOcean
 
-Although not as good of a deal as Oracle's, through the GitHub student pack you can redeem \$100 of DigitalOcean credits which last indefinitely, unlike the "\$100 for 3 months" offers available by scouring for referral links online. With the [updated pricing](https://www.digitalocean.com/try/new-pricing) (billing is per hour), this will get you a 1GB server for 16 months or a 2GB server for 8 months.  Alternatively, if you just want to blow it on compute resources (max. 8GB unless you request for 16GB or the specialized droplets), then you might as well just use referral links.
-
+Although not as good of a deal as Oracle's, through the GitHub student pack you can redeem \$100 of DigitalOcean credits which last indefinitely, unlike the "\$100 for 3 months" offers available by scouring for referral links online. With the [updated pricing](https://www.digitalocean.com/try/new-pricing) (billing is per hour), this will get you a 1GB server for 16 months or a 2GB server for 8 months. Alternatively, if you just want to blow it on compute resources (max. 8GB unless you request for 16GB or the specialized droplets), then you might as well just use referral links.
 
 ![DigitalOcean pricing](./dg.png)
-
 
 # Other VPS services
 
@@ -80,7 +81,6 @@ GCP stands out with its generous 90-day \$300USD (\$400SGD) free trial, and is v
 
 I had a projected where I needed to run some CPU-intensive physics simulations. My team was on a tight schedule with the deadline in only a few days and we output from a few thousand runs of the simulation. First, we ran it on a GCP instance with 24 E2 processors, with every other relevant setting maxed out. But while a single run on a regular computer would take 2m5s for 1 run and 5m21s for 12 runs with multithreading, only 100 runs were completed in 10 hours overnight on the GCP instance. Maybe its cause as Google put it, "E2s fire in bursts" so we tried 8 C2s then 8 N1s instead, but it didn't help. The following graph shows the peak in CPU usage when the script running the simulation is first started, and how CPU goes to zero and stays there after a while.
 
-
 ![GCP CPU Usage](./cpuusage.png)
 
 In the end, a humble 8GB digitalocean server finished 1.3k runs in 13 hours. A fair improvement.
@@ -103,11 +103,11 @@ To summarize, we will now go over some specific usecases.
 
 > I want to host a static (generated) website.
 
-If you have a simple HTML5 site you want to quickly deploy, then surge.sh is a service that allows you to quickly host it with a domain like ```victorious-drain.surge.sh```. 
+If you have a simple HTML5 site you want to quickly deploy, then surge.sh is a service that allows you to quickly host it with a domain like `victorious-drain.surge.sh`.
 
 For anything more than that, there's either hosting it on Github Pages or a service like Vercel or Netlify. Github Pages has neat features like extended support for Jekyll apps (which are pretty cool) and even statically generated website (e.g. Hugo, Next.js apps) can be hosted on Github Pages using community-made Github Actions. Github Pages domains are also less shady. But there are some minor annoyances like the interface being rudimentary and thus it can be hard to troubleshoot issues with custom domain names or building a project properly.
 
-Netlify and Vercel is also quick to use and are more full-fledged hosting services. All you have to do is link your Github repository and it will take care of parsing the web framework, building and deploying. Vercel domains look like ```custom-name.vercel.app``` while netlify domains look like ```custom-name.netlify.app```. Vercel also has site analytics which Netlify locks behind a steep paywall.
+Netlify and Vercel is also quick to use and are more full-fledged hosting services. All you have to do is link your Github repository and it will take care of parsing the web framework, building and deploying. Vercel domains look like `custom-name.vercel.app` while netlify domains look like `custom-name.netlify.app`. Vercel also has site analytics which Netlify locks behind a steep paywall.
 
 tl;dr Use Vercel
 
@@ -125,4 +125,4 @@ Find referral links online for DigitalOcean (90-day \$100), Linode (60-day \$100
 
 # Epilogue: Why bother?
 
-Leveraging cloud services and exploiting the generosity of crazy big cloud providers lends itself well to the spirit of hacker culture, that is to say, the DIY ethic and finding creative or elaborate solutions to minor inconveniences. I've tried hooking up my Wolfram Mathematica client to cloud compute server with Wolfram Language, or using [xming](https://sourceforge.net/projects/xming/) to interface with COMSOL hosted somewhere else (this didn't work). I could stay and preach the value and satisfaction of self-hosting but I'll save it for another post. If you have anything you'd like to share regarding your experiences with cloud hosting, message me on discord at ```meecrob/hash/8207``` or be sure to share it in the AppVenture server. 
+Leveraging cloud services and exploiting the generosity of crazy big cloud providers lends itself well to the spirit of hacker culture, that is to say, the DIY ethic and finding creative or elaborate solutions to minor inconveniences. I've tried hooking up my Wolfram Mathematica client to cloud compute server with Wolfram Language, or using [xming](https://sourceforge.net/projects/xming/) to interface with COMSOL hosted somewhere else (this didn't work). I could stay and preach the value and satisfaction of self-hosting but I'll save it for another post. If you have anything you'd like to share regarding your experiences with cloud hosting, message me on discord at `meecrob/hash/8207` or be sure to share it in the AppVenture server.

@@ -1,5 +1,5 @@
-import { Tag } from './Tag';
-import { Contributor } from './Contributor';
+import { Tag } from "./Tag";
+import { Contributor } from "./Contributor";
 
 interface Contribution {
   contributors: Contributor;

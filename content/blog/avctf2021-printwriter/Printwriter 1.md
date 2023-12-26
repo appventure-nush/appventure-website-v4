@@ -3,7 +3,7 @@ title: "[AVCTF2021] Printwriter 1"
 slug: avctf2021-printwriter
 author: [zhaoyun]
 date: 2021-12-21
-tags: [ctf, pwn,writeup]
+tags: [ctf, pwn, writeup]
 ---
 
 > My wonderful app works both as an echo server and a file lister!
@@ -17,7 +17,7 @@ undefined8 main(void)
 {
     int32_t iVar1;
     char *format;
-    
+
     setup();
     while( true ) {
         fgets(&format, 0x70, _stdin);
@@ -79,7 +79,7 @@ offset = 6
 
 In the decompiler, I noticed how `/bin/ls/` is located at `0x00404058`
 
- ![image-20211221173130465](./image-20211221173130465.png)
+![image-20211221173130465](./image-20211221173130465.png)
 
 If I edit `/bin/ls/` into `/bin/sh`, as they have same amount of characters, I can gain remote shell access.
 

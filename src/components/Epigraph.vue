@@ -9,33 +9,34 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class Epigraph extends Vue {
-  @Prop({required: true}) quote!: string
+  @Prop({ required: true }) quote!: string;
 }
 </script>
 
 <style scoped lang="scss">
 .epigraph {
   margin: 1.25em 4rem 2em;
-  padding: .5em 2.5em .375em;
+  padding: 0.5em 2.5em 0.375em;
   overflow: hidden;
   position: relative;
 
   blockquote {
     border-left: none;
   }
-  blockquote::before, blockquote::after {
+  blockquote::before,
+  blockquote::after {
     display: block;
     position: absolute;
     font-size: 2.5em;
   }
   blockquote::before {
     content: "\201C";
-    top: -.2em;
-    left: -.045em;
+    top: -0.2em;
+    left: -0.045em;
   }
   blockquote::after {
     content: "\201D";
@@ -46,7 +47,5 @@ export default class Epigraph extends Vue {
     font-style: italic;
     margin-top: 0;
   }
-
 }
-
 </style>
