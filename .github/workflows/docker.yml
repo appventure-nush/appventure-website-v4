@@ -10,23 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      #      - name: Use Node.js 16.19.0
-      #        uses: actions/setup-node@v3
-      #        with:
-      #          node-version: 16.19.0
-      #      - run: npm run genrss
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Push image to AppVenture registry
-        uses: docker/build-push-action@v1
+      - name: Login to AppVenture registry
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           registry: registry.nush.app
-          repository: appventure-website-v4
-          tags: latest
-          path: .
-          build_args: STATIC_URL=https://large.nush.app
+
+      - name: Push image to AppVenture registry
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: registry.nush.app/appventure-website-v4:latest
+          build-args: |
+            STATIC_URL=https://large.nush.app
 
       - name: Check if static files changed
         uses: dorny/paths-filter@v2
@@ -37,12 +37,9 @@ jobs:
               - 'static-large/**'
 
       - name: Push large static files image to AppVenture registry
-        uses: docker/build-push-action@v1
+        uses: docker/build-push-action@v5
         if: steps.filter.outputs.static == 'true'
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          registry: registry.nush.app
-          repository: appventure-website-v4
-          tags: static-latest
-          path: ./static-large
+          context: ./static-large
+          push: true
+          tags: registry.nush.app/appventure-website-v4:static-latest
