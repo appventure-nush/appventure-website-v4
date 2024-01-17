@@ -159,7 +159,7 @@ export default class AboutPage extends Vue {
 
   public data() {
     return {
-      selectedYear: 2023,
+      selectedYear: 2024,
       teams: {
         2017: [
           {
