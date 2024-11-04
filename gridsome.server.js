@@ -28,7 +28,7 @@ module.exports = function (api) {
 
     authorsJson.forEach(({ id, avatar, ...fields }) => {
       avatar = !avatar
-        ? `https://api.dicebear.com/9.x/shapes?seed=${id}`
+        ? `https://api.dicebear.com/9.x/shapes/svg?seed=${id}`
         : avatar;
       authors.addNode({
         id,
