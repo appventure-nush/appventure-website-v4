@@ -28,7 +28,7 @@ module.exports = function (api) {
 
     authorsJson.forEach(({ id, avatar, ...fields }) => {
       avatar = !avatar
-        ? `https://source.boringavatars.com/pixel/120/${id}?colors=009A90,333F48,41B883`
+        ? `https://api.dicebear.com/9.x/shapes?seed=${id}`
         : avatar;
       authors.addNode({
         id,
