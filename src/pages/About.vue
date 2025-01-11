@@ -159,7 +159,7 @@ export default class AboutPage extends Vue {
 
   public data() {
     return {
-      selectedYear: 2024,
+      selectedYear: 2025,
       teams: {
         2017: [
           {
@@ -260,6 +260,26 @@ export default class AboutPage extends Vue {
           { name: "Yue Heng", position: "Projects IC", description: "" },
           { name: "Sai", position: "Outreach & Development IC", description: "" },
           { name: "Simu", position: "AI IC", description: "" },
+        ],
+        2025: [
+          {
+            name: "Yue Heng",
+            position: "President & Infrastructure IC",
+            description: "",
+          },
+          {
+            name: "Sai",
+            position: "Vice-President & Outreach IC",
+            description: "",
+          },
+          {
+            name: "Junheng",
+            position: "Cybersecurity IC",
+            description: "",
+          },
+          { name: "Simu", position: "Projects IC", description: "" },
+          { name: "Fatin", position: "Cybersecurity IC", description: "" },
+          { name: "Nanda", position: "Development IC", description: "" },
         ],
         Teachers: [
           {
